@@ -644,7 +644,6 @@ if not st.session_state.logged_in:
         )
 
         st.markdown("---")
-
 # -----------------------------
 # APP (SOLO USUARIOS LOGUEADOS)
 # -----------------------------
