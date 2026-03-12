@@ -986,33 +986,33 @@ if st.session_state.get("logged_in", False):
 
             st.plotly_chart(fig, use_container_width=True)
 
-          # -------------------------------
-          # Limite de simulaciones gratuitas
-          # -------------------------------
+            # -------------------------------
+            # Limite de simulaciones gratuitas
+            # -------------------------------
 
-          simulaciones = db.get_user_simulations(st.session_state.user_email)
+            simulaciones = db.get_user_simulations(st.session_state.user_email)
 
-          st.info(f"Simulaciones usadas: {len(simulaciones)} / 5")
+            st.info(f"Simulaciones usadas: {len(simulaciones)} / 5")
         
-          if not is_pro_user(st.session_state.user_email) and len(simulaciones) >= 5:
+            if not is_pro_user(st.session_state.user_email) and len(simulaciones) >= 5:
 
-              st.warning("Has alcanzado el límite del plan gratuito (5 simulaciones).")
+                st.warning("Has alcanzado el límite del plan gratuito (5 simulaciones).")
 
-              st.markdown("### Actualiza a Plan Pro para continuar")
+                st.markdown("### Actualiza a Plan Pro para continuar")
 
-              st.link_button(
-                  "Upgrade a Pro 🚀",
-                  "https://pricingmarketai.lemonsqueezy.com/checkout/buy/047578b8-169b-46c0-8e58-bc295f959d7e"
-              )
+                st.link_button(
+                    "Upgrade a Pro 🚀",
+                    "https://pricingmarketai.lemonsqueezy.com/checkout/buy/047578b8-169b-46c0-8e58-bc295f959d7e"
+                )
 
-              st.stop()
+                st.stop()
         
-          save_simulation(
-              st.session_state.user_email,
-              precio,
-              demanda,
-              ingresos,
-          )
+            save_simulation(
+                st.session_state.user_email,
+                precio,
+                demanda,
+                ingresos,
+            )
 
     elif menu == "History":
 
