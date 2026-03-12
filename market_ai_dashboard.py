@@ -927,7 +927,7 @@ if st.session_state.get("logged_in", False):
 
           simulaciones = db.get_user_simulations(st.session_state.user_email)
 
-          if len(simulaciones) >= 10:
+          if len(simulaciones) >= 5:
 
               st.warning("Has alcanzado el límite del plan gratuito (10 simulaciones).")
 
