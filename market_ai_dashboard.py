@@ -921,6 +921,22 @@ if st.session_state.get("logged_in", False):
 
           st.plotly_chart(fig, use_container_width=True)
 
+          # -------------------------------
+          # Limite de simulaciones gratuitas
+          # -------------------------------
+
+          simulaciones = db.get_user_simulations(st.session_state.user_email)
+
+          if len(simulaciones) >= 10:
+
+              st.warning("Has alcanzado el límite del plan gratuito (10 simulaciones).")
+
+              st.markdown("### Actualiza a Plan Pro para continuar")
+
+              st.button("Upgrade a Pro")
+
+              st.stop()
+        
           save_simulation(
               st.session_state.user_email,
               precio,
