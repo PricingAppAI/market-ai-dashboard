@@ -288,6 +288,7 @@ if not st.session_state.logged_in:
         "<h1 style='text-align:center;'>IA que encuentra el precio óptimo para maximizar tus ingresos</h1>",
         unsafe_allow_html=True
     )
+
     st.markdown(
     """
     <h3 style="text-align:center;">
@@ -562,63 +563,6 @@ if not st.session_state.logged_in:
 
             st.stop()
 
-        st.markdown(
-            "<p style='text-align:center;color:#9aa0a6;'>Empresas usan Market AI para maximizar ingresos con decisiones basadas en datos.</p>",
-            unsafe_allow_html=True
-
-        )
-
-       
-        st.markdown(
-            "<h2 style='text-align:center;'> Elige tu plan</h2>",
-            unsafe_allow_html=True
-        )
-        st.markdown(
-            "<p style='text-align:center;color:#9aa0a6;'>Empieza gratis o desbloquea todo el poder de la IA</p>",
-            unsafe_allow_html=True
-        )
-        col1, col2 = st.columns(2)
-
-        with col1:
-
-            st.markdown("""
-            <div style="padding:25px;border-radius:12px;border:1px solid #2d2d2d;background-color:#0e1117">
-            <h3> Plan Gratis</h3>
-
-            • 5 simulaciones por día 
-            • Simulador de demanda 
-            • Dashboard básico 
-
-            <br>
-            </div>
-            """, unsafe_allow_html=True)
-
-            st.button(" Probar gratis", use_container_width=True)
-
-        with col2:
-
-            st.markdown("""
-            <div style="padding:25px;border-radius:12px;border:2px solid #00c2ff;background-color:#0e1117">
-            <h3> Suscripción PRO</h3>
-
-            • Simulaciones ilimitadas 
-            • Análisis avanzado de precios 
-            • Dashboard empresarial 
-
-            <br>
-
-            <h2>$19.999 / mes</h2>
-
-            </div>
-            """, unsafe_allow_html=True)
-
-            st.link_button(
-                " Activar PRO",
-                "https://pricingmarketai.lemonsqueezy.com/checkout/buy/047578b8-169b-46c0-8e58-bc295f959d7e",
-                 use_container_width=True
-            )
-
-            st.markdown("---")
 # -----------------------------
 # APP (SOLO USUARIOS LOGUEADOS)
 # -----------------------------
