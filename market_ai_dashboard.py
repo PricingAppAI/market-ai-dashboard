@@ -935,7 +935,10 @@ if st.session_state.get("logged_in", False):
 
               st.markdown("### Actualiza a Plan Pro para continuar")
 
-              st.button("Upgrade a Pro")
+              st.link_button(
+                  "Upgrade a Pro 🚀",
+                  "https://pricingmarketai.lemonsqueezy.com/checkout/buy/047578b8-169b-46c0-8e58-bc295f959d7e"
+              )
 
               st.stop()
         
