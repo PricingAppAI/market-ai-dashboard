@@ -841,70 +841,70 @@ if st.session_state.get("logged_in", False):
                     100
                 )
 
-              demandas_modelo = model.predict(precios_modelo.reshape(-1,1))
+                demandas_modelo = model.predict(precios_modelo.reshape(-1,1))
 
-              df_model = pd.DataFrame({
-                  "Precio": precios_modelo,
-                  "Demanda estimada": demandas_modelo
-              })
+                df_model = pd.DataFrame({
+                    "Precio": precios_modelo,
+                    "Demanda estimada": demandas_modelo
+                })
 
-              st.line_chart(
-                  df_model,
-                  x="Precio",
-                  y="Demanda estimada"
-              )
+                st.line_chart(
+                    df_model,
+                    x="Precio",
+                    y="Demanda estimada"
+                )
 
-              st.markdown("---")
-              st.subheader("Precio óptimo según el modelo")
+                st.markdown("---")
+                st.subheader("Precio óptimo según el modelo")
 
-              # generar muchos precios posibles
-              precios_test = np.linspace(
-                  df_data["precio"].min(),
-                  df_data["precio"].max(),
-                  200
-              )
+                # generar muchos precios posibles
+                precios_test = np.linspace(
+                    df_data["precio"].min(),
+                    df_data["precio"].max(),
+                    200
+                )
 
-              # predecir demanda para cada precio
-              demandas_pred = model.predict(precios_test.reshape(-1,1))
+                # predecir demanda para cada precio
+                demandas_pred = model.predict(precios_test.reshape(-1,1))
 
-              # calcular ingresos
-              ingresos_pred = precios_test * demandas_pred
+                # calcular ingresos
+                ingresos_pred = precios_test * demandas_pred
 
-              # encontrar el máximo
-              idx_max = np.argmax(ingresos_pred)
+                # encontrar el máximo
+                idx_max = np.argmax(ingresos_pred)
 
-              precio_optimo_modelo = precios_test[idx_max]
-              ingreso_max_modelo = ingresos_pred[idx_max]
+                precio_optimo_modelo = precios_test[idx_max]
+                ingreso_max_modelo = ingresos_pred[idx_max]
 
-              st.success(f"Precio recomendado: {round(precio_optimo_modelo,2)}")
-              st.write(f"Ingreso máximo estimado: {round(ingreso_max_modelo,2)}")
+                st.success(f"Precio recomendado: {round(precio_optimo_modelo,2)}")
+                st.write(f"Ingreso máximo estimado: {round(ingreso_max_modelo,2)}")
 
-              st.markdown("---")
-              st.subheader("Superficie 3D de ingresos")
+                st.markdown("---")
+                st.subheader("Superficie 3D de ingresos")
 
-              precios_3d = np.linspace(1,100,50)
-              demandas_3d = np.linspace(0, base_demand,50)
+                precios_3d = np.linspace(1,100,50)
+                demandas_3d = np.linspace(0, base_demand,50)
 
-              X, Y = np.meshgrid(precios_3d, demandas_3d)
+                X, Y = np.meshgrid(precios_3d, demandas_3d)
 
-              Z = X * Y
+                Z = X * Y
 
-              fig = go.Figure(data=[go.Surface(
-                  x=X,
-                  y=Y,
-                  z=Z
-              )])
+                fig = go.Figure(data=[go.Surface(
+                    x=X,
+                    y=Y,
+                    z=Z
+                )])
 
-              fig.update_layout(
-                  scene=dict(
-                      xaxis_title="Precio",
-                      yaxis_title="Demanda",
-                      zaxis_title="Ingresos"
-                  ),
-                  height=600
-              )
+                fig.update_layout(
+                    scene=dict(
+                        xaxis_title="Precio",
+                        yaxis_title="Demanda",
+                        zaxis_title="Ingresos"
+                    ),
+                    height=600
+                )
 
-              st.plotly_chart(fig)
+                st.plotly_chart(fig)
 
           else:
 
