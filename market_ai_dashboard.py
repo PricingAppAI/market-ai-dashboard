@@ -562,6 +562,37 @@ if not st.session_state.logged_in:
 
             st.stop()
 
+        st.markdown(
+            "<p style='text-align:center;color:#9aa0a6;'>Empresas usan Market AI para maximizar ingresos con decisiones basadas en datos.</p>",
+            unsafe_allow_html=True
+
+        )
+
+        st.markdown(
+            "<h3 style='text-align:center;'>⭐ ¿Por qué usar Market AI?</h3>",
+            unsafe_allow_html=True
+        )
+        
+        col1, col2, col3 = st.columns(3)
+
+        with col1:
+            st.markdown(
+                "<p style='text-align:center;'>📊 <b>Optimiza precios automáticamente</b></p>",
+                unsafe_allow_html=True
+            )
+
+        with col2:
+            st.markdown(
+                "<p style='text-align:center;'>🤖 <b>IA que aprende de la demanda</b></p>",
+                unsafe_allow_html=True
+            )
+
+        with col3:
+            st.markdown(
+                "<p style='text-align:center;'>🚀 <b>Aumenta tus ingresos</b></p>",
+                unsafe_allow_html=True
+            )
+
     st.markdown(
         "<h2 style='text-align:center;'> Elige tu plan</h2>",
         unsafe_allow_html=True
@@ -613,37 +644,6 @@ if not st.session_state.logged_in:
         )
 
         st.markdown("---")
-
-        st.markdown(
-            "<p style='text-align:center;color:#9aa0a6;'>Empresas usan Market AI para maximizar ingresos con decisiones basadas en datos.</p>",
-            unsafe_allow_html=True
-
-        )
-
-        st.markdown(
-            "<h3 style='text-align:center;'>⭐ ¿Por qué usar Market AI?</h3>",
-            unsafe_allow_html=True
-        )
-        
-        col1, col2, col3 = st.columns(3)
-
-        with col1:
-            st.markdown(
-                "<p style='text-align:center;'>📊 <b>Optimiza precios automáticamente</b></p>",
-                unsafe_allow_html=True
-            )
-
-        with col2:
-            st.markdown(
-                "<p style='text-align:center;'>🤖 <b>IA que aprende de la demanda</b></p>",
-                unsafe_allow_html=True
-            )
-
-        with col3:
-            st.markdown(
-                "<p style='text-align:center;'>🚀 <b>Aumenta tus ingresos</b></p>",
-                unsafe_allow_html=True
-            )
 
 # -----------------------------
 # APP (SOLO USUARIOS LOGUEADOS)
