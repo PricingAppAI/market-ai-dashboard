@@ -562,39 +562,49 @@ if not st.session_state.logged_in:
 
             st.stop()
 
-    st.markdown("---")
-    st.subheader("Planes")
+    st.markdown("## 💼 Elige tu plan")
+    st.caption("Empieza gratis o desbloquea todo el poder de la IA")
     col1, col2 = st.columns(2)
 
     with col1:
 
-        st.markdown("### 🆓 Probar Gratis")
+        st.markdown("""
+        <div style="padding:25px;border-radius:12px;border:1px solid #2d2d2d;background-color:#0e1117">
+        <h3> Plan Gratis</h3>
 
-        st.write("• 5 simulaciones por día")
-        st.write("• Simulador de demanda")
-        st.write("• Dashboard básico")
+        • 5 simulaciones por día 
+        • Simulador de demanda 
+        • Dashboard básico 
 
-        if st.button("Probar gratis"):
+        <br>
+        </div>
+        """, unsafe_allow_html=True)
 
-            st.session_state.show_register = True
+        st.button(" Probar gratis", use_container_width=True)
+
 
     with col2:
 
-        st.markdown("### Suscripción PRO")
+        st.markdown("""
+        <div style="padding:25px;border-radius:12px;border:2px solid #00c2ff;background-color:#0e1117">
+        <h3> Suscripción PRO</h3>
 
-        st.write("• Simulaciones ilimitadas")
-        st.write("• Análisis avanzado de precios")
-        st.write("• Dashboard empresarial")
+        • Simulaciones ilimitadas 
+        • Análisis avanzado de precios 
+        • Dashboard empresarial 
 
-        st.write("$19,999 / mes")
+        <br>
 
-        if st.button("Suscribirme"):
+        <h2>$19.999 / mes</h2>
 
-            st.link_button(
-                "Activar Pro",
-                "https://pricingmarketai.lemonsqueezy.com/checkout/buy/047578b8-169b-46c0-8e58-bc295f959d7e"
-            )
-    
+        </div>
+        """, unsafe_allow_html=True)
+
+        st.link_button(
+            " Activar PRO",
+            "https://pricingmarketai.lemonsqueezy.com/checkout/buy/047578b8-169b-46c0-8e58-bc295f959d7e",
+             use_container_width=True
+        )
 
 # -----------------------------
 # APP (SOLO USUARIOS LOGUEADOS)
