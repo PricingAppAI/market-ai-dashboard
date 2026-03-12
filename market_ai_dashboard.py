@@ -1411,3 +1411,32 @@ if st.session_state.get("logged_in", False):
 
                     st.write("Datos cargados:")
                     st.dataframe(df)
+
+                    # -------------------------------
+                    # Calcular precio óptimo
+                    # -------------------------------
+
+                    if "precio" in df.columns and "ventas" in df.columns:
+
+                        from sklearn.linear_model import LinearRegression
+                        import numpy as np
+
+                        X = df[["precio"]]
+                        y = df["ventas"]
+
+                        model = LinearRegression()
+                        model.fit(X, y)
+
+                        precios = np.linspace(df["precio"].min(), df["precio"].max(), 100)
+
+                        demandas = model.predict(precios.reshape(-1,1))
+                        ingresos = precios * demandas
+
+                        idx = np.argmax(ingresos)
+
+                        precio_optimo = precios[idx]
+                        ingreso_optimo = ingresos[idx]
+
+                        st.markdown("### Precio óptimo sugerido")
+                        st.success(f"Precio óptimo: {round(precio_optimo,2)}")
+                        st.write(f"Ingresos estimados: {round(ingreso_optimo,2)}")
