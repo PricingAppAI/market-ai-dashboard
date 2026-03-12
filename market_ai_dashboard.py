@@ -832,14 +832,14 @@ if st.session_state.get("logged_in", False):
 
                 st.write(f"Elasticidad estimada del precio: {round(elasticidad,3)}")
 
-              st.markdown("---")
-              st.subheader("Curva de demanda aprendida por el modelo")
+                st.markdown("---")
+                st.subheader("Curva de demanda aprendida por el modelo")
 
-              precios_modelo = np.linspace(
-                  df_data["precio"].min(),
-                  df_data["precio"].max(),
-                  100
-              )
+                precios_modelo = np.linspace(
+                    df_data["precio"].min(),
+                    df_data["precio"].max(),
+                    100
+                )
 
               demandas_modelo = model.predict(precios_modelo.reshape(-1,1))
 
