@@ -562,8 +562,14 @@ if not st.session_state.logged_in:
 
             st.stop()
 
-    st.markdown("## 💼 Elige tu plan")
-    st.caption("Empieza gratis o desbloquea todo el poder de la IA")
+    st.markdown(
+        "<h2 style='text-align:center;'> Elige tu plan</h2>",
+        unsafe_allow_html=True
+    )
+    st.markdown(
+        "<p style='text-align:center;color:#9aa0a6;'>Empieza gratis o desbloquea todo el poder de la IA</p>",
+        unsafe_allow_html=True
+    )
     col1, col2 = st.columns(2)
 
     with col1:
