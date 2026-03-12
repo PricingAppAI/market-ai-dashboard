@@ -615,14 +615,14 @@ if not st.session_state.logged_in:
         st.markdown("---")
 
         st.markdown(
-            "<h3 style='text-align:center;'>⭐ ¿Por qué usar Market AI?</h3>",
-            unsafe_allow_html=True
-        )
-
-        st.markdown(
             "<p style='text-align:center;color:#9aa0a6;'>Empresas usan Market AI para maximizar ingresos con decisiones basadas en datos.</p>",
             unsafe_allow_html=True
 
+        )
+
+        st.markdown(
+            "<h3 style='text-align:center;'>⭐ ¿Por qué usar Market AI?</h3>",
+            unsafe_allow_html=True
         )
         
         col1, col2, col3 = st.columns(3)
