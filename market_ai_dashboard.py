@@ -797,40 +797,40 @@ if st.session_state.get("logged_in", False):
 
             st.write("Simula diferentes precios y observa cómo cambia la demanda.")
 
-          st.markdown("---")
+            st.markdown("---")
 
-          st.subheader("Entrenar modelo con datos reales")
+            st.subheader("Entrenar modelo con datos reales")
 
-          uploaded_file = st.file_uploader(
-              "Sube un CSV con columnas: precio, ventas",
-              type=["csv"]
-          )
+            uploaded_file = st.file_uploader(
+                "Sube un CSV con columnas: precio, ventas",
+                type=["csv"]
+            )
 
-          if uploaded_file is not None:
+            if uploaded_file is not None:
 
-              df_data = pd.read_csv(uploaded_file)
+                df_data = pd.read_csv(uploaded_file)
 
-              if "precio" not in df_data.columns or "unidades" not in df_data.columns:
-                  st.error("El CSV debe tener columnas: precio y unidades")
-                  st.stop()
+                if "precio" not in df_data.columns or "unidades" not in df_data.columns:
+                    st.error("El CSV debe tener columnas: precio y unidades")
+                    st.stop()
 
-              st.write("Datos cargados:")
-              st.dataframe(df_data)
+                st.write("Datos cargados:")
+                st.dataframe(df_data)
 
-              X = df_data[["precio"]]
-              y = df_data["unidades"]
+                X = df_data[["precio"]]
+                y = df_data["unidades"]
 
-              model = LinearRegression()
-              model.fit(X, y)
+                model = LinearRegression()
+                model.fit(X, y)
 
-              base_demand = model.intercept_
-              elasticidad = -model.coef_[0]
+                base_demand = model.intercept_
+                elasticidad = -model.coef_[0]
 
-              st.success("Modelo de demanda entrenado correctamente")
+                st.success("Modelo de demanda entrenado correctamente")
 
-              elasticidad = model.coef_[0]
+                elasticidad = model.coef_[0]
 
-              st.write(f"Elasticidad estimada del precio: {round(elasticidad,3)}")
+                st.write(f"Elasticidad estimada del precio: {round(elasticidad,3)}")
 
               st.markdown("---")
               st.subheader("Curva de demanda aprendida por el modelo")
