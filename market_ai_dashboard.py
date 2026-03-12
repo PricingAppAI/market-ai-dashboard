@@ -1393,4 +1393,11 @@ if st.session_state.get("logged_in", False):
 
             else:
                 st.error("El CSV debe contener columnas llamadas 'precio' y 'unidades'")
-           
+
+                st.markdown("---")
+                st.subheader("Cargar datos de mercado")
+
+                archivo = st.file_uploader(
+                    "Sube un archivo Excel con precios y demanda",
+                     type=["xlsx", "csv"]
+                ) 
