@@ -578,65 +578,65 @@ if not st.session_state.logged_in:
 
         )
 
-    st.markdown("---")
+        st.markdown("---")
 
-    st.subheader("Planes disponibles")
+        st.subheader("Planes disponibles")
 
-    col1, col2 = st.columns(2)
+        col1, col2 = st.columns(2)
 
-    with col1:
+        with col1:
 
-        st.markdown("""
-        <div style="padding:25px;border-radius:12px;border:1px solid #2d2d2d;background-color:#0e1117">
-        <h3> Plan Gratis</h3>
+            st.markdown("""
+            <div style="padding:25px;border-radius:12px;border:1px solid #2d2d2d;background-color:#0e1117">
+            <h3> Plan Gratis</h3>
 
-        • 5 simulaciones por día 
-        • Simulador de demanda 
-        • Dashboard básico 
+            • 5 simulaciones por día 
+            • Simulador de demanda 
+            • Dashboard básico 
 
-        <br>
-        </div>
-        """, unsafe_allow_html=True)
+            <br>
+            </div>
+            """, unsafe_allow_html=True)
 
-        st.button(" Probar gratis", use_container_width=True)
+            st.button(" Probar gratis", use_container_width=True)
 
-    with col2:
+        with col2:
 
-        st.markdown("""
-        <div style="padding:25px;border-radius:12px;border:2px solid #00c2ff;background-color:#0e1117">
-        <h3> Suscripción PRO</h3>
+            st.markdown("""
+            <div style="padding:25px;border-radius:12px;border:2px solid #00c2ff;background-color:#0e1117">
+            <h3> Suscripción PRO</h3>
 
-        • Simulaciones ilimitadas 
-        • Análisis avanzado de precios 
-        • Dashboard empresarial 
+            • Simulaciones ilimitadas 
+            • Análisis avanzado de precios 
+            • Dashboard empresarial 
 
-        <br>
+            <br>
 
-        <h2>$19.999 / mes</h2>
+            <h2>$19.999 / mes</h2>
 
-        </div>
-        """, unsafe_allow_html=True)
+            </div>
+            """, unsafe_allow_html=True)
 
-        st.link_button(
-            " Activar PRO",
-            "https://pricingmarketai.lemonsqueezy.com/checkout/buy/047578b8-169b-46c0-8e58-bc295f959d7e",
-            use_container_width=True
-        )
+            st.link_button(
+                " Activar PRO",
+                "https://pricingmarketai.lemonsqueezy.com/checkout/buy/047578b8-169b-46c0-8e58-bc295f959d7e",
+                use_container_width=True
+            )
 
-    st.markdown("---")
+        st.markdown("---")
 
-    st.markdown("### ⭐ ¿Por qué usar Market AI?")
+        st.markdown("### ⭐ ¿Por qué usar Market AI?")
 
-    col1, col2, col3 = st.columns(3)
+        col1, col2, col3 = st.columns(3)
 
-    with col1:
-        st.markdown("📊 **Optimiza precios automáticamente**")
+        with col1:
+            st.markdown("📊 **Optimiza precios automáticamente**")
 
-    with col2:
-        st.markdown("🤖 **IA que aprende de la demanda**")
+        with col2:
+            st.markdown("🤖 **IA que aprende de la demanda**")
 
-    with col3:
-        st.markdown("🚀 **Aumenta tus ingresos**")
+        with col3:
+            st.markdown("🚀 **Aumenta tus ingresos**")
 
 # -----------------------------
 # APP (SOLO USUARIOS LOGUEADOS)
