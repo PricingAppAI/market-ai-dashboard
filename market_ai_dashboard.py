@@ -475,7 +475,7 @@ if not st.session_state.logged_in:
                         st.session_state.verification_code = None
 
                         st.session_state.logged_in = True
-                        st.session_state.user_email = email
+                        st.session_state.user_email = st.session_state.pending_email
 
                         st.rerun()
 
