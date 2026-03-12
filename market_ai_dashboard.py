@@ -35,7 +35,12 @@ def init_db():
         password_hash TEXT
     )
     """)
-
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS subscriptions (
+        email TEXT PRIMARY KEY,
+        plan TEXT
+    )
+    """)
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS simulations (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -122,6 +127,25 @@ def get_user(email):
     conn.close()
 
     return user
+
+def is_pro_user(email):
+
+    conn = sqlite3.connect("users.db")
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT plan FROM subscriptions WHERE email=?",
+        (email,)
+    )
+
+    result = cursor.fetchone()
+
+    conn.close()
+
+    if result and result[0] == "pro":
+        return True
+
+    return False
 
 def password_strength(password):
 
@@ -929,9 +953,9 @@ if st.session_state.get("logged_in", False):
 
           st.info(f"Simulaciones usadas: {len(simulaciones)} / 5")
         
-          if len(simulaciones) >= 5:
+          if not is_pro_user(st.session_state.user_email) and len(simulaciones) >= 5:
 
-              st.warning("Has alcanzado el límite del plan gratuito (10 simulaciones).")
+              st.warning("Has alcanzado el límite del plan gratuito (5 simulaciones).")
 
               st.markdown("### Actualiza a Plan Pro para continuar")
 
