@@ -15,6 +15,7 @@ import bcrypt
 import sqlite3
 import database.db as db
 import io
+import time
 
 from database.db import init_simulations_table
 from database.db import create_user
@@ -433,6 +434,7 @@ if not st.session_state.logged_in:
                     code = send_verification_code(new_email)
 
                     st.session_state.verification_code = code
+                    st.session_state.verification_sent_time = time.time()
                     st.session_state.pending_email = new_email
  
                     hashed_password = hash_password(new_password)
@@ -443,6 +445,19 @@ if not st.session_state.logged_in:
         if st.session_state.verification_code:
 
             user_code = st.text_input("Introduce el código que recibiste por email")
+
+            if "verification_sent_time" in st.session_state:
+                segundos_pasados = time.time() - st.session_state.verification_sent_time
+                espera = 30
+                if segundos_pasados < espera:
+                    restante = int(espera - segundos_pasados)
+                    st.info(f"Puedes reenviar el código en {restante} segundos")
+                else:
+                    if st.button("Reenviar código de verificación"):
+                    new_code = send_verification_code(st.session_state.pending_email)
+                    st.session_state.verification_code = new_code
+                    st.session_state.verification_sent_time = time.time()
+                    st.success("Nuevo código enviado a tu correo")
 
             if st.button("Verificar código"):
 
