@@ -289,16 +289,6 @@ if not st.session_state.logged_in:
         unsafe_allow_html=True
     )
     st.markdown(
-        "<p style='text-align:center;font-size:18px;color:#9aa0a6;'>+200 empresas optimizando precios con IA</p>",
-        unsafe_allow_html=True
-    )
-
-    st.markdown(
-        "<p style='text-align:center;font-size:14px;color:#6c757d;'>Simula demanda, optimiza precios y aumenta tus ingresos con inteligencia artificial</p>",
-        unsafe_allow_html=True
-    )
-    
-    st.markdown(
     """
     <h3 style="text-align:center;">
     Optimiza tus ingresos con inteligencia artificial
@@ -578,10 +568,15 @@ if not st.session_state.logged_in:
 
         )
 
-        st.markdown("---")
-
-        st.subheader("Planes disponibles")
-
+       
+        st.markdown(
+            "<h2 style='text-align:center;'> Elige tu plan</h2>",
+            unsafe_allow_html=True
+        )
+        st.markdown(
+            "<p style='text-align:center;color:#9aa0a6;'>Empieza gratis o desbloquea todo el poder de la IA</p>",
+            unsafe_allow_html=True
+        )
         col1, col2 = st.columns(2)
 
         with col1:
@@ -620,24 +615,10 @@ if not st.session_state.logged_in:
             st.link_button(
                 " Activar PRO",
                 "https://pricingmarketai.lemonsqueezy.com/checkout/buy/047578b8-169b-46c0-8e58-bc295f959d7e",
-                use_container_width=True
+                 use_container_width=True
             )
 
-        st.markdown("---")
-
-        st.markdown("### ⭐ ¿Por qué usar Market AI?")
-
-        col1, col2, col3 = st.columns(3)
-
-        with col1:
-            st.markdown("📊 **Optimiza precios automáticamente**")
-
-        with col2:
-            st.markdown("🤖 **IA que aprende de la demanda**")
-
-        with col3:
-            st.markdown("🚀 **Aumenta tus ingresos**")
-
+            st.markdown("---")
 # -----------------------------
 # APP (SOLO USUARIOS LOGUEADOS)
 # -----------------------------
