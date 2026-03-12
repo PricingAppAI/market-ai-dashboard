@@ -454,10 +454,10 @@ if not st.session_state.logged_in:
                     st.info(f"Puedes reenviar el código en {restante} segundos")
                 else:
                     if st.button("Reenviar código de verificación"):
-                    new_code = send_verification_code(st.session_state.pending_email)
-                    st.session_state.verification_code = new_code
-                    st.session_state.verification_sent_time = time.time()
-                    st.success("Nuevo código enviado a tu correo")
+                        new_code = send_verification_code(st.session_state.pending_email)
+                        st.session_state.verification_code = new_code
+                        st.session_state.verification_sent_time = time.time()
+                        st.success("Nuevo código enviado a tu correo")
 
             if st.button("Verificar código"):
 
