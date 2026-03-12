@@ -459,6 +459,11 @@ if not st.session_state.logged_in:
 
                         st.session_state.verification_code = None
 
+                        st.session_state.logged_in = True
+                        st.session_state.user_email = email
+
+                        st.rerun()
+
                     else:
 
                         st.error("El correo ya está registrado")
