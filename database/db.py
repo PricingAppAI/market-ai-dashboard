@@ -21,11 +21,7 @@ def init_simulations_table():
     cursor = conn.cursor()
 
     cursor.execute("""
-    DROP TABLE IF EXISTS simulations
-    """)
-
-    cursor.execute("""
-    CREATE TABLE simulations (
+    CREATE TABLE IF NOT EXISTS simulations (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         email TEXT,
         precio REAL,
