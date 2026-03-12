@@ -606,6 +606,21 @@ if not st.session_state.logged_in:
              use_container_width=True
         )
 
+        st.markdown("---")
+
+        st.markdown("### ⭐ ¿Por qué usar Market AI?")
+
+        col1, col2, col3 = st.columns(3)
+
+        with col1:
+            st.markdown("📊 **Optimiza precios automáticamente**")
+
+        with col2:
+            st.markdown("🤖 **IA que aprende de la demanda**")
+
+        with col3:
+            st.markdown("🚀 **Aumenta tus ingresos**")
+
 # -----------------------------
 # APP (SOLO USUARIOS LOGUEADOS)
 # -----------------------------
