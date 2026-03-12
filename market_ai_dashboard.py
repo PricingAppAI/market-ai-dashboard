@@ -591,7 +591,7 @@ if not st.session_state.logged_in:
         st.write("• IA avanzada de pricing")
         st.write("• Dashboard profesional")
 
-        st.write("💰 $9.000 ARS / mes")
+        st.write("💰 $19.999 ARS / mes")
 
         if st.link_button(
             "Activar PRO",
