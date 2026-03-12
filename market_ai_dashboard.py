@@ -780,7 +780,7 @@ if st.session_state.get("logged_in", False):
     elif menu == "Simulador de demanda":
 
           st.title("Simulador de demanda")
-          if "user_email" in st.session_state and st.session.user_email == "nelsonrivero162@gmail.com":
+          if "user_email" in st.session_state and st.session_state.user_email == "nelsonrivero162@gmail.com":
 
               st.markdown("---")
               st.subheader("📊 Panel de negocio")
