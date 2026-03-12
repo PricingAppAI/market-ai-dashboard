@@ -447,7 +447,7 @@ if not st.session_state.logged_in:
             user_code = st.text_input("Introduce el código que recibiste por email")
 
             if "verification_sent_time" in st.session_state:
-                segundos_pasados = time.time() - st.session_state.verification_sent_time
+                segundos_pasados = time.time() - st.session_state.verification_sent_time
                 espera = 30
                 if segundos_pasados < espera:
                     restante = int(espera - segundos_pasados)
