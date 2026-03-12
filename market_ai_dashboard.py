@@ -289,6 +289,39 @@ if not st.session_state.logged_in:
         unsafe_allow_html=True
     )
 
+    st.markdown("---")
+    st.subheader("Planes")
+    col1, col2 = st.columns(2)
+
+    with col1:
+
+        st.markdown("### 🆓 Probar Gratis")
+
+        st.write("• 5 simulaciones por día")
+        st.write("• Simulador de demanda")
+        st.write("• Dashboard básico")
+
+        if st.button("Probar gratis"):
+
+            st.session_state.show_register = True
+
+    with col2:
+
+        st.markdown("### Suscripción PRO")
+
+        st.write("• Simulaciones ilimitadas")
+        st.write("• Análisis avanzado de precios")
+        st.write("• Dashboard empresarial")
+
+        st.write("$19,999 / mes")
+
+        if st.button("Suscribirme"):
+
+            st.link_button(
+                "Activar Pro",
+                "https://pricingmarketai.lemonsqueezy.com/checkout/buy/047578b8-169b-46c0-8e58-bc295f959d7e"
+            )
+    
     st.markdown(
     """
     <h3 style="text-align:center;">
