@@ -147,6 +147,33 @@ def is_pro_user(email):
 
     return False
 
+def get_total_users():
+
+    conn = sqlite3.connect("users.db")
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT COUNT(*) FROM users")
+    total = cursor.fetchone()[0]
+
+    conn.close()
+
+    return total
+
+def get_total_pro_users():
+
+    conn = sqlite3.connect("users.db")
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT COUNT(*) FROM subscriptions WHERE plan='pro'"
+    )
+
+    total = cursor.fetchone()[0]
+
+    conn.close()
+
+    return total
+
 def password_strength(password):
 
     score = 0
@@ -753,6 +780,18 @@ if st.session_state.get("logged_in", False):
     elif menu == "Simulador de demanda":
 
           st.title("Simulador de demanda")
+
+          st.markdown("---")
+          st.subheader("📊 Panel de negocio")
+
+          total_users = get_total_users()
+          total_pro = get_total_pro_users()
+
+          st.write(f"Usuarios registrados: {total_users}")
+          st.write(f"Usuarios Pro: {total_pro}")
+
+          ingresos_estimados = total_pro * 20000
+          st.write(f"Ingresos estimados mensuales: ARS {ingresos_estimados}")
 
           st.write("Simula diferentes precios y observa cómo cambia la demanda.")
 
