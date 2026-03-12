@@ -906,85 +906,85 @@ if st.session_state.get("logged_in", False):
 
                 st.plotly_chart(fig)
 
-          else:
+            else:
 
-              base_demand = 200
-              elasticidad = 1.5
+                base_demand = 200
+                elasticidad = 1.5
 
-          precio = st.slider(
-              "Selecciona un precio",
-              min_value=1,
-              max_value=100,
-              value=20
-          )
+            precio = st.slider(
+                "Selecciona un precio",
+                min_value=1,
+                max_value=100,
+                value=20
+            )
 
-          demanda = base_demand - elasticidad * precio
+            demanda = base_demand - elasticidad * precio
 
-          ingresos = precio * demanda
+            ingresos = precio * demanda
 
-          # generar rango de precios
-          precios = list(range(1, 101))
+            # generar rango de precios
+            precios = list(range(1, 101))
 
-          # calcular demanda para cada precio
-          demandas = [base_demand - elasticidad * p for p in precios]
+            # calcular demanda para cada precio
+            demandas = [base_demand - elasticidad * p for p in precios]
 
-          # calcular ingresos para cada precio
-          ingresos_lista = [p * (base_demand - elasticidad * p) for p in precios]
+            # calcular ingresos para cada precio
+            ingresos_lista = [p * (base_demand - elasticidad * p) for p in precios]
 
-          df_ingresos = pd.DataFrame({
-              "Precio": precios,
-              "Ingresos": ingresos_lista
-          })
+            df_ingresos = pd.DataFrame({
+                "Precio": precios,
+                "Ingresos": ingresos_lista
+            })
 
-          st.subheader("Resultado de la simulación")
-          st.write(f"Precio elegido: {precio}")
-          st.write(f"Demanda estimada: {demanda}")
-          st.write(f"Ingresos estimados: {ingresos}")
+            st.subheader("Resultado de la simulación")
+            st.write(f"Precio elegido: {precio}")
+            st.write(f"Demanda estimada: {demanda}")
+            st.write(f"Ingresos estimados: {ingresos}")
 
-          st.markdown("---")
-          st.subheader("Ingresos según el precio")
+            st.markdown("---")
+            st.subheader("Ingresos según el precio")
 
-          st.line_chart(
-              df_ingresos,
-              x="Precio",
-              y="Ingresos"
-          )
+            st.line_chart(
+                df_ingresos,
+                x="Precio",
+                y="Ingresos"
+            )
 
-          precio_optimo = precios[ingresos_lista.index(max(ingresos_lista))]
-          ingreso_max = max(ingresos_lista)
+            precio_optimo = precios[ingresos_lista.index(max(ingresos_lista))]
+            ingreso_max = max(ingresos_lista)
 
-          st.markdown("---")
+            st.markdown("---")
 
-          st.subheader("Precio óptimo")
+            st.subheader("Precio óptimo")
 
-          st.success(f"El precio que maximiza ingresos es: {precio_optimo}")
-          st.write(f"Ingreso máximo estimado: {round(ingreso_max,2)}")
+            st.success(f"El precio que maximiza ingresos es: {precio_optimo}")
+            st.write(f"Ingreso máximo estimado: {round(ingreso_max,2)}")
 
-          st.markdown("---")
-          st.subheader("Mapa de ingresos (Precio vs Demanda)")
+            st.markdown("---")
+            st.subheader("Mapa de ingresos (Precio vs Demanda)")
 
-          precios_heat = np.linspace(1, 100, 50)
-          demandas_heat = np.linspace(0, base_demand, 50)
+            precios_heat = np.linspace(1, 100, 50)
+            demandas_heat = np.linspace(0, base_demand, 50)
 
-          Z = []
+            Z = []
 
-          for d in demandas_heat:
-              fila = []
-              for p in precios_heat:
-                  fila.append(p * d)
-              Z.append(fila)
+            for d in demandas_heat:
+                fila = []
+                for p in precios_heat:
+                    fila.append(p * d)
+                Z.append(fila)
 
-          df_heat = pd.DataFrame(Z)
+            df_heat = pd.DataFrame(Z)
 
-          fig = px.imshow(
-              Z,
-              labels=dict(x="Precio", y="Demanda", color="Ingresos"),
-              x=precios_heat,
-              y=demandas_heat,
-              aspect="auto"
-          )
+            fig = px.imshow(
+                Z,
+                labels=dict(x="Precio", y="Demanda", color="Ingresos"),
+                x=precios_heat,
+                y=demandas_heat,
+                aspect="auto"
+            )
 
-          st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, use_container_width=True)
 
           # -------------------------------
           # Limite de simulaciones gratuitas
