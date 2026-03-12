@@ -9,7 +9,8 @@ def create_users_table():
     CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         email TEXT UNIQUE,
-        password TEXT
+        password TEXT,
+        is_pro INTEGER DEFAULT 0
     )
     """)
 
@@ -82,5 +83,24 @@ def get_user_simulations(email):
     rows = cursor.fetchall()
 
     conn.close()
-
+    
     return rows
+
+def is_user_pro(email):
+
+    conn = sqlite3.connect("users.db")
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT is_pro FROM users WHERE email = ?",
+        (email,)
+    )
+
+    result = cursor.fetchone()
+
+    conn.close()
+
+    if result:
+        return result[0] == 1
+
+    return False
