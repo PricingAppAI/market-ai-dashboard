@@ -1401,3 +1401,13 @@ if st.session_state.get("logged_in", False):
                     "Sube un archivo Excel con precios y demanda",
                      type=["xlsx", "csv"]
                 ) 
+
+                if archivo is not None:
+
+                    if archivo.name.endswith(".csv"):
+                        df = pd.read_csv(archivo)
+                    else:
+                        df = pd.read_excel(archivo)
+
+                    st.write("Datos cargados:")
+                    st.dataframe(df)
