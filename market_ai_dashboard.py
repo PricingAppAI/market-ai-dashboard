@@ -780,20 +780,21 @@ if st.session_state.get("logged_in", False):
     elif menu == "Simulador de demanda":
 
           st.title("Simulador de demanda")
+          if "user_email" in st.session_state and st.session.user_email == "nelsonrivero162@gmail.com":
 
-          st.markdown("---")
-          st.subheader("📊 Panel de negocio")
+              st.markdown("---")
+              st.subheader("📊 Panel de negocio")
 
-          total_users = get_total_users()
-          total_pro = get_total_pro_users()
+              total_users = get_total_users()
+              total_pro = get_total_pro_users()
 
-          st.write(f"Usuarios registrados: {total_users}")
-          st.write(f"Usuarios Pro: {total_pro}")
+              st.write(f"Usuarios registrados: {total_users}")
+              st.write(f"Usuarios Pro: {total_pro}")
 
-          ingresos_estimados = total_pro * 20000
-          st.write(f"Ingresos estimados mensuales: ARS {ingresos_estimados}")
+              ingresos_estimados = total_pro * 20000
+              st.write(f"Ingresos estimados mensuales: ARS {ingresos_estimados}")
 
-          st.write("Simula diferentes precios y observa cómo cambia la demanda.")
+              st.write("Simula diferentes precios y observa cómo cambia la demanda.")
 
           st.markdown("---")
 
