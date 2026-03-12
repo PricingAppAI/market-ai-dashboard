@@ -595,7 +595,7 @@ if not st.session_state.logged_in:
 
         if st.link_button(
             "Activar PRO",
-            "https://pricingmarketai.lemonsqueezy.com/checkout/buy/047578b8-169b-46c0-8e58-bc295f959d7e""
+            "https://pricingmarketai.lemonsqueezy.com/checkout/buy/047578b8-169b-46c0-8e58-bc295f959d7e"
         ):
             pass
 # -----------------------------
