@@ -17,6 +17,7 @@ import database.db as db
 import io
 import time
 
+from streamlit_autorefresh import st.autorefresh
 from database.db import init_simulations_table
 from database.db import create_user
 from database.db import get_user_simulations
