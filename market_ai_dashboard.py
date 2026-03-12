@@ -436,6 +436,7 @@ if not st.session_state.logged_in:
 
                     st.session_state.verification_code = code
                     st.session_state.verification_sent_time = time.time()
+                    st.session_state.verification_created_time = time.time()
                     st.session_state.pending_email = new_email
  
                     hashed_password = hash_password(new_password)
@@ -446,6 +447,8 @@ if not st.session_state.logged_in:
         if st.session_state.verification_code:
 
             user_code = st.text_input("Introduce el código que recibiste por email")
+            if "verification_attempts" not in st.session_state:
+                st.session_state.verification_attempts = 0
 
             if "verification_sent_time" in st.session_state:
                 st_autorefresh(interval=1000, key="timer")
@@ -462,6 +465,16 @@ if not st.session_state.logged_in:
                         st.success("Nuevo código enviado a tu correo")
 
             if st.button("Verificar código"):
+                # verificar expiración del código
+                if "verification_created_time" in st.session_state:
+
+                    segundos_pasados = time.time() - st.session_state.verification_created_time
+
+                    if segundos_pasados > 300:
+
+                       st.error("El código expiró. Solicita uno nuevo.")
+                       st.session_state.verification_code = None
+                       st.stop()
 
                 if user_code == st.session_state.verification_code:
 
