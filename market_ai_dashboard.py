@@ -353,11 +353,6 @@ if not st.session_state.logged_in:
             unsafe_allow_html=True
          )
 
-    st.markdown(
-    "<h2 style='text-align:center;'>Empieza ahora</h2>",
-    unsafe_allow_html=True
-    )
-
     col1, col2 = st.columns(2)
 
     st.markdown(
@@ -386,6 +381,57 @@ if not st.session_state.logged_in:
         "<p style='text-align:center;'>🚀<br><b>Aumenta ingresos</b><br><span style='color:#9aa0a6;'>con precios óptimos</span></p>",
         unsafe_allow_html=True
     )
+    
+    st.markdown("---")
+
+    st.markdown(
+    """
+    <h2 style='text-align:center;'>Empieza ahora</h2>
+    <p style='text-align:center;color:#9aa0a6;'>Crea tu cuenta o elige un plan para comenzar.</p>
+    """,
+    unsafe_allow_html=True
+    )
+    left, right = st.columns(2)
+
+    with left:
+
+        st.markdown("### 🔓 Plan Gratis")
+
+        st.write("• 5 simulaciones por día")
+        st.write("• Simulador de demanda")
+        st.write("• Dashboard básico")
+
+        st.button("Probar gratis")
+
+        st.markdown("---")
+
+        st.markdown("### 💎 Suscripción PRO")
+
+        st.write("• Simulaciones ilimitadas")
+        st.write("• Análisis avanzado de precios")
+        st.write("• Dashboard empresarial")
+
+        st.markdown("### $19.999 / mes")
+
+        st.button("Activar PRO")
+
+    with right:
+
+        st.markdown("### Iniciar sesión")
+
+        email_login = st.text_input("Correo electrónico")
+        password_login = st.text_input("Contraseña", type="password")
+
+        st.button("Ingresar")
+
+        st.markdown("---")
+
+        st.markdown("### Crear cuenta")
+
+        email_register = st.text_input("Nuevo correo")
+        password_register = st.text_input("Nueva contraseña", type="password")
+
+        st.button("Crear cuenta")
     
     # -------------------------
     # REGISTRO
