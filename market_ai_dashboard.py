@@ -426,15 +426,27 @@ if not st.session_state.logged_in:
         background: rgba(25,25,25,0.85);
         padding:30px;
         border-radius:16px;
-        border:1px solid rgba(255,215,0,0.35);
+
+        border:1px solid rgba(255,215,0,0.5);
+
+        box-shadow:
+            0 0 10px rgba(255,215,0,0.3),
+            0 0 25px rgba(255,215,0,0.15);
+
         transition: all 0.35s ease;
         cursor:pointer;
     }
 
     .plan-card-pro:hover{
+
         border:1px solid gold;
-        box-shadow:0 0 45px rgba(255,215,0,0.6);
-        transform:translateY(-6px);
+
+        box-shadow:
+            0 0 20px rgba(255,215,0,0.6),
+            0 0 40px rgba(255,215,0,0.4),
+            0 0 80px rgba(255,215,0,0.25);
+
+        transform:translateY(-6px) scale(1.02);
     }
 
     .plan-card-pro span{
