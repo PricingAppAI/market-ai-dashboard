@@ -391,7 +391,7 @@ if not st.session_state.logged_in:
     """,
     unsafe_allow_html=True
     )
-    left, right = st.columns(2)
+    left, center, right = st.columns([1,1,1])
 
     with left:
 
@@ -403,7 +403,7 @@ if not st.session_state.logged_in:
 
         st.button("Probar gratis")
 
-        st.markdown("---")
+    with center:
 
         st.markdown("### 💎 Suscripción PRO")
 
