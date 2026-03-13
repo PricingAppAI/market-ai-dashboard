@@ -395,20 +395,20 @@ if not st.session_state.logged_in:
     st.markdown("""
     <style>
 
+    /* TARJETA */
     .plan-card {
-        background: #111;
-        padding: 25px;
-        border-radius: 15px;
-        border: 1px solid #2a2a2a;
-        width: 100%;
-        display: block;
-        transition: all 0.3s ease;
+        background: rgba(20,20,20,0.8);
+        padding: 30px;
+        border-radius: 16px;
+        border: 1px solid rgba(255,255,255,0.08);
+        transition: all 0.35s ease;
     }
 
+    /* EFECTO HOVER */
     .plan-card:hover {
         border: 1px solid #00e5ff;
-        box-shadow: 0 0 30px rgba(0,229,255,0.6);
-        transform: translateY(-4px);
+        box-shadow: 0 0 35px rgba(0,229,255,0.55);
+        transform: translateY(-6px);
     }
 
     </style>
@@ -418,9 +418,6 @@ if not st.session_state.logged_in:
 
     with left:
         
-        st.markdown('<div class="plan-card">', unsafe_allow_html=True)
-        st.markdown("<div style='padding:10px;'>", unsafe_allow_html=True)
-
         st.markdown("### 🔓 Plan Gratis")
 
         st.write("• 5 simulaciones por día")
@@ -429,7 +426,6 @@ if not st.session_state.logged_in:
 
         st.button("Probar gratis")
 
-        st.markdown('</div>', unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
     with center:
