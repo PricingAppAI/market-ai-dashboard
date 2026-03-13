@@ -405,6 +405,14 @@ if not st.session_state.logged_in:
         cursor:pointer;
     }
 
+    .plan-card h3{
+        color:white;
+    }
+
+    .plan-card p{
+        color:rgba(255,255,255,0.8);
+    }
+
     .plan-card:hover{
         border:1px solid #00e5ff;
         box-shadow:0 0 40px rgba(0,229,255,0.6);
@@ -445,6 +453,26 @@ if not st.session_state.logged_in:
 
         transition: all 0.35s ease;
         cursor:pointer;
+    }
+
+    .plan-card-pro h3{
+        color:#ffffff;
+        font-weight:600;
+    }
+
+    .plan-card-pro p{
+        color:rgba(255,255,255,0.85);
+        margin:6px 0;
+    }
+
+    .plan-card-pro h2{
+        color:#ffd700;
+        margin-top:12px;
+    }
+
+    .plan-card-pro span{
+        color:rgba(255,255,255,0.7);
+        font-size:14px;
     }
 
     .plan-card-pro:hover{
