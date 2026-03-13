@@ -415,6 +415,8 @@ if not st.session_state.logged_in:
     left, center, right = st.columns([1,1,1], gap="large")
 
     with left:
+        
+        st.markdown('<div class="plan-card">', unsafe_allow_html=True)
 
         st.markdown("### 🔓 Plan Gratis")
 
@@ -423,6 +425,8 @@ if not st.session_state.logged_in:
         st.write("• Dashboard básico")
 
         st.button("Probar gratis")
+
+        st.markdown('</div>', unsafe_allow_html=True)
 
     with center:
 
