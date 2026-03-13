@@ -362,7 +362,7 @@ if not st.session_state.logged_in:
 
     st.markdown(
         """
-        <h2 style='text-align:center;'>⭐ ¿Por qué usar Market AI?</h2>
+        <h3 style='text-align:center;'>⭐ ¿Por qué usar Market AI?</h3>
         """,
         unsafe_allow_html=True
         )
@@ -370,13 +370,22 @@ if not st.session_state.logged_in:
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        st.markdown("<p style='text-align:center;'>📊<br>Optimiza precios automáticamente</p>", unsafe_allow_html=True)
+        st.markdown(
+        "<p style='text-align:center;'>📊<br><b>Optimiza precios</b><br><span style='color:#9aa0a6;'>automáticamente</span></p>",
+        unsafe_allow_html=True
+    )
 
     with col2:
-        st.markdown("<p style='text-align:center;'>🤖<br>IA que aprende de la demanda</p>", unsafe_allow_html=True)
+        st.markdown(
+        "<p style='text-align:center;'>🤖<br><b>IA que aprende</b><br><span style='color:#9aa0a6;'>de la demanda</span></p>",
+        unsafe_allow_html=True
+    )
 
     with col3:
-        st.markdown("<p style='text-align:center;'>🚀<br>Aumenta tus ingresos</p>", unsafe_allow_html=True)
+        st.markdown(
+        "<p style='text-align:center;'>🚀<br><b>Aumenta ingresos</b><br><span style='color:#9aa0a6;'>con precios óptimos</span></p>",
+        unsafe_allow_html=True
+    )
     
     # -------------------------
     # REGISTRO
