@@ -436,9 +436,6 @@ if not st.session_state.logged_in:
         transform:translateY(-6px);
     }
 
-    </style>
-    """, unsafe_allow_html=True)
-
     .popular-tag{
         position:absolute;
         top:-12px;
