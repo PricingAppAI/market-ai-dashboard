@@ -469,7 +469,7 @@ if not st.session_state.logged_in:
 
             <div class="popular-tag">MÁS POPULAR</div>
 
-            <h3>💎 Suscripción PRO</h3>
+            <h3>Suscripción PRO</h3>
             <p>Simulaciones ilimitadas</p>
             <p>Análisis avanzado de precios</p>
             <p>Dashboard empresarial</p>
