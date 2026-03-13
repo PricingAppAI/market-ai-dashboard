@@ -481,8 +481,8 @@ if not st.session_state.logged_in:
 
             <button class="plan-btn">Activar PRO</button>
 
-            </div>
-            """, unsafe_allow_html=True)
+        </div>
+        """, unsafe_allow_html=True)
 
     with right:
 
