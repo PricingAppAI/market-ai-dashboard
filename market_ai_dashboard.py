@@ -421,6 +421,7 @@ if not st.session_state.logged_in:
     }
     
     .plan-card-pro{
+        position:relative;
         background: rgba(25,25,25,0.85);
         padding:30px;
         border-radius:16px;
@@ -437,6 +438,18 @@ if not st.session_state.logged_in:
 
     </style>
     """, unsafe_allow_html=True)
+
+    .popular-tag{
+        position:absolute;
+        top:-12px;
+        right:20px;
+        background:gold;
+        color:black;
+        font-weight:bold;
+        padding:4px 10px;
+        border-radius:8px;
+        font-size:12px;
+    }
 
     left, center, right = st.columns(3)
 
@@ -456,12 +469,18 @@ if not st.session_state.logged_in:
 
         st.markdown("""
         <div class="plan-card-pro">
+
+            <div class="popular-tag">⭐ MÁS POPULAR</div>
+
             <h3>💎 Suscripción PRO</h3>
             <p>• Simulaciones ilimitadas</p>
             <p>• Análisis avanzado de precios</p>
             <p>• Dashboard empresarial</p>
+
             <h3>$19.999 / mes</h3>
+
             <button class="plan-btn">Activar PRO</button>
+
         </div>
         """, unsafe_allow_html=True)
 
