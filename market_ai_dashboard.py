@@ -596,16 +596,6 @@ if not st.session_state.logged_in:
                 else:
 
                     st.error("Código incorrecto")
-                    
-    st.markdown(
-        """
-        <h2 style='text-align:center;'>🔒 Elige tu plan</h2>
-        <p style='text-align:center; color:#9aa0a6;'>
-        Empieza gratis o desbloquea todo el poder de la IA
-        </p>
-        """,
-        unsafe_allow_html=True
-    )
 
 # -----------------------------
 # APP (SOLO USUARIOS LOGUEADOS)
