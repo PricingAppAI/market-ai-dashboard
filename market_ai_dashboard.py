@@ -441,7 +441,7 @@ if not st.session_state.logged_in:
     
     .plan-card-pro{
         position:relative;
-        background: rgba(25,25,25,0.85);
+        background: rgba(18,18,18,0.96);
         padding:30px;
         border-radius:16px;
 
