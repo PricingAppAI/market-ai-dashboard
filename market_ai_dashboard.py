@@ -419,10 +419,7 @@ if not st.session_state.logged_in:
         color:white;
         cursor:pointer;
     }
-
-    </style>
-    """, unsafe_allow_html=True)
-
+    
     .plan-card-pro{
         background: rgba(25,25,25,0.85);
         padding:30px;
