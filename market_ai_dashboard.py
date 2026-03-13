@@ -461,22 +461,22 @@ if not st.session_state.logged_in:
 
             st.success("Código enviado a tu correo")
 
-        st.markdown("---")
+    st.markdown("---")
 
-        st.markdown("### Crear cuenta")
+    st.markdown("### Crear cuenta")
 
-        if st.button("Crear cuenta", type="primary"):
-            st.session_state.show_register = True
+    if st.button("Crear cuenta", type="primary"):
+        st.session_state.show_register = True
 
-        if st.session_state.show_register:
+    if st.session_state.show_register:
 
-            new_email = st.text_input("Correo electrónico", key="register_email")
+        new_email = st.text_input("Correo electrónico", key="register_email")
 
-            new_password = st.text_input(
-                "Contraseña",
-                type="default" if st.session_state.get("show_password", False) else "password",
-                key="register_password"
-            )
+        new_password = st.text_input(
+            "Contraseña",
+            type="default" if st.session_state.get("show_password", False) else "password",
+            key="register_password"
+        )
 
             # 👇 MEDIDOR DE FUERZA DE CONTRASEÑA
             if new_password:
