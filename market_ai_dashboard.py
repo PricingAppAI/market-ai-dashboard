@@ -423,6 +423,21 @@ if not st.session_state.logged_in:
     </style>
     """, unsafe_allow_html=True)
 
+    .plan-card-pro{
+        background: rgba(25,25,25,0.85);
+        padding:30px;
+        border-radius:16px;
+        border:1px solid rgba(255,215,0,0.35);
+        transition: all 0.35s ease;
+        cursor:pointer;
+    }
+
+    .plan-card-pro:hover{
+        border:1px solid gold;
+        box-shadow:0 0 45px rgba(255,215,0,0.6);
+        transform:translateY(-6px);
+    }
+
     left, center, right = st.columns(3)
 
     with left:
@@ -439,15 +454,16 @@ if not st.session_state.logged_in:
 
     with center:
 
-        st.markdown("### 💎 Suscripción PRO")
-
-        st.write("• Simulaciones ilimitadas")
-        st.write("• Análisis avanzado de precios")
-        st.write("• Dashboard empresarial")
-
-        st.markdown("### $19.999 / mes")
-
-        st.button("Activar PRO")
+        st.markdown("""
+        <div class="plan-card-pro">
+            <h3>💎 Suscripción PRO</h3>
+            <p>• Simulaciones ilimitadas</p>
+            <p>• Análisis avanzado de precios</p>
+            <p>• Dashboard empresarial</p>
+            <h3>$19.999 / mes</h3>
+            <button class="plan-btn">Activar PRO</button>
+        </div>
+        """, unsafe_allow_html=True)
 
     with right:
 
