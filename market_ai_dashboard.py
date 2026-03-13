@@ -436,6 +436,11 @@ if not st.session_state.logged_in:
         transform:translateY(-6px);
     }
 
+    .plan-card-pro span{
+        font.size:14px;
+        opacity:0.7;
+    }
+ 
     .popular-tag{
         position:absolute;
         top:-12px;
@@ -477,7 +482,7 @@ if not st.session_state.logged_in:
             <p>• Análisis avanzado de precios</p>
             <p>• Dashboard empresarial</p>
 
-            <h3>$19.999 / mes</h3>
+            <h2>$19.999 <span>/ mes</span></h2>
 
             <button class="plan-btn">Activar PRO</button>
 
