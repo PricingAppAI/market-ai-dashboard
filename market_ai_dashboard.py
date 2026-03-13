@@ -438,6 +438,9 @@ if not st.session_state.logged_in:
         transform:translateY(-6px);
     }
 
+    </style>
+    """, unsafe_allow_html=True)
+
     left, center, right = st.columns(3)
 
     with left:
