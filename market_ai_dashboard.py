@@ -391,7 +391,7 @@ if not st.session_state.logged_in:
     """,
     unsafe_allow_html=True
     )
-    left, center, right = st.columns([1,1,1])
+    left, center, right = st.columns([1,1,1], gap="large")
 
     with left:
 
