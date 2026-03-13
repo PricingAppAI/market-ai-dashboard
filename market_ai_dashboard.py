@@ -415,17 +415,58 @@ if not st.session_state.logged_in:
 
         st.button("Activar PRO")
 
-    # -------------------------
-    # REGISTRO
-    # -------------------------
+    with right:
 
-    with col1:
+        st.markdown("### Iniciar sesión")
+
+        email = st.text_input("Correo electrónico", key="login_email")
+
+        password = st.text_input(
+            "Contraseña",
+            type="password",
+            key="login_password"
+        )
+
+        if st.button("Ingresar", type="primary"):
+
+            result = login_user(email, password)
+
+            if result:
+
+                st.session_state.logged_in = True
+                st.session_state.user_email = email
+
+                st.rerun()
+
+            else:
+                st.error("Credenciales incorrectas")
+
+            st.markdown("---")
+
+            if st.button("Olvidé mi contraseña"):
+                st.session_state.show_reset = True
+
+    if st.session_state.show_reset:
+
+        email_reset = st.text_input(
+            "Introduce tu correo para recuperar la contraseña"
+        )
+
+        if st.button("Enviar código de recuperación"):
+
+            code = send_verification_code(email_reset)
+
+            st.session_state.reset_email = email_reset
+            st.session_state.reset_code = code
+
+            st.success("Código enviado a tu correo")
+
+            st.stop()
 
         st.markdown("### Crear cuenta")
 
         if st.button("Crear cuenta", type="primary"):
             st.session_state.show_register = True
-
 
         if st.session_state.show_register:
 
@@ -555,68 +596,7 @@ if not st.session_state.logged_in:
                 else:
 
                     st.error("Código incorrecto")
-
-    # -------------------------
-    # LOGIN
-    # -------------------------
-
-    with col2:
-     
-        left_space, login_center, right_space = st.columns([1,4,1])
-
-        with login_center:
-
-            st.markdown("### Iniciar sesión")
-
-            email = st.text_input("Correo electrónico", key="login_email")
-
-            password = st.text_input(
-                "Contraseña",
-                type="password",
-                key="login_password"
-            )
-
-            login_col, reset_col = st.columns(2)
-
-        with login_col:
-
-            if st.button("Ingresar", type="primary"):
-
-                result = login_user(email, password)
-
-                if result:
-
-                    st.session_state.logged_in = True
-                    st.session_state.user_email = email
-
-                    st.rerun()
-
-                else:
-
-                    st.error("Credenciales incorrectas")
-
-        with reset_col:
-
-            if st.button("Olvidé mi contraseña"):
-                st.session_state.show_reset = True
-
-    if st.session_state.show_reset:
-
-        email_reset = st.text_input(
-            "Introduce tu correo para recuperar la contraseña"
-        )
-
-        if st.button("Enviar código de recuperación"):
-
-            code = send_verification_code(email_reset)
-
-            st.session_state.reset_email = email_reset
-            st.session_state.reset_code = code
-
-            st.success("Código enviado a tu correo")
-
-            st.stop()
-
+                    
     st.markdown(
         """
         <h2 style='text-align:center;'>🔒 Elige tu plan</h2>
