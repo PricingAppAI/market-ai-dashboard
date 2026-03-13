@@ -455,9 +455,9 @@ if not st.session_state.logged_in:
         st.markdown("""
         <div class="plan-card">
             <h3>Plan Gratis</h3>
-            <p>• 5 simulaciones por día</p>
-            <p>• Simulador de demanda</p>
-            <p>• Dashboard básico</p>
+            <p>5 simulaciones por día</p>
+            <p>Simulador de demanda</p>
+            <p>Dashboard básico</p>
             <button class="plan-btn">Probar gratis</button>
         </div>
         """, unsafe_allow_html=True)
