@@ -496,6 +496,58 @@ if not st.session_state.logged_in:
     with center:
 
         components.html("""
+        <style>
+
+        .plan-card-pro{
+            position:relative;
+            background: rgba(25,25,25,0.9);
+            padding:30px;
+            border-radius:16px;
+
+            border:1px solid rgba(255,215,0,0.6);
+
+            box-shadow:
+                0 0 15px rgba(255,215,0,0.3),
+                0 0 40px rgba(255,215,0,0.15);
+
+            transition:all .35s ease;
+            font-family:sans-serif;
+        }
+
+        .plan-card-pro:hover{
+            border:1px solid gold;
+
+            box-shadow:
+                0 0 30px rgba(255,215,0,0.7),
+                0 0 70px rgba(255,215,0,0.4);
+
+            transform:translateY(-6px) scale(1.03);
+        }
+
+        .popular-tag{
+            position:absolute;
+            top:-12px;
+            right:20px;
+            background:gold;
+            color:black;
+            font-weight:bold;
+            padding:4px 10px;
+            border-radius:8px;
+            font-size:12px;
+        }
+
+        .plan-btn{
+            background:linear-gradient(135deg,#ffd700,#ffb700);
+            color:black;
+            border:none;
+            padding:10px 18px;
+            border-radius:8px;
+            font-weight:600;
+            margin-top:10px;
+        }
+
+        </style>
+
         <div class="plan-card-pro">
 
         <div class="popular-tag">⭐ MÁS POPULAR</div>
@@ -506,12 +558,12 @@ if not st.session_state.logged_in:
         <p>• Análisis avanzado de precios</p>
         <p>• Dashboard empresarial</p>
 
-        <h2>$19.999 <span>/ mes</span></h2>
+        <h2>$19.999 <span style="font-size:14px;opacity:.7">/ mes</span></h2>
 
         <button class="plan-btn">Activar PRO</button>
 
         </div>
-        """, height=320)
+        """, height=340)
 
     with right:
 
