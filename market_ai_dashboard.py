@@ -396,17 +396,17 @@ if not st.session_state.logged_in:
     <style>
 
     .plan-card {
-        background: rgba(255,255,255,0.03);
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 16px;
+        background-color: #111;
         padding: 25px;
+        border-radius: 15px;
+        border: 1px solid #2a2a2a;
         transition: all 0.3s ease;
     }
 
     .plan-card:hover {
-        border: 1px solid #00c8ff;
-        box-shadow: 0 0 20px rgba(0,200,255,0.4);
-        transform: translateY(-4px);
+        border: 1px solid #00e5ff;
+        box-shadow: 0 0 25px rgba(0,229,255,0.6);
+        transform: translateY(-5px);
     }
 
     </style>
