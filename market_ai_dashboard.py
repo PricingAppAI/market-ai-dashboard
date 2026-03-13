@@ -457,25 +457,25 @@ if not st.session_state.logged_in:
 
         st.markdown("""
         <div class="plan-card">
-            <h3>Plan Gratis</h3>
-            <p>5 simulaciones por día</p>
-            <p>Simulador de demanda</p>
-            <p>Dashboard básico</p>
+            <h3>🔓 Plan Gratis</h3>
+            <p>• 5 simulaciones por día</p>
+            <p>• Simulador de demanda</p>
+            <p>• Dashboard básico</p>
             <button class="plan-btn">Probar gratis</button>
         </div>
-        """, unsafe_allow_html=True)
+        """, unsafe_allow_html=True))
 
     with center:
 
         st.markdown("""
         <div class="plan-card-pro">
 
-            <div class="popular-tag">MÁS POPULAR</div>
+            <div class="popular-tag">⭐ MÁS POPULAR</div>
 
-            <h3>Suscripción PRO</h3>
-            <p>Simulaciones ilimitadas</p>
-            <p>Análisis avanzado de precios</p>
-            <p>Dashboard empresarial</p>
+            <h3>💎 Suscripción PRO</h3>
+            <p>• Simulaciones ilimitadas</p>
+            <p>• Análisis avanzado de precios</p>
+            <p>• Dashboard empresarial</p>
 
             <h3>$19.999 / mes</h3>
 
