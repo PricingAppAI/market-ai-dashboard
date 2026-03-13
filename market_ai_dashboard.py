@@ -395,20 +395,29 @@ if not st.session_state.logged_in:
     st.markdown("""
     <style>
 
-    /* TARJETA */
-    .plan-card {
-        background: rgba(20,20,20,0.8);
-        padding: 30px;
-        border-radius: 16px;
-        border: 1px solid rgba(255,255,255,0.08);
+    .plan-card{
+        background: rgba(25,25,25,0.85);
+        padding:30px;
+        border-radius:16px;
+        border:1px solid rgba(255,255,255,0.08);
         transition: all 0.35s ease;
+        cursor:pointer;
     }
 
-    /* EFECTO HOVER */
-    .plan-card:hover {
-        border: 1px solid #00e5ff;
-        box-shadow: 0 0 35px rgba(0,229,255,0.55);
-        transform: translateY(-6px);
+    .plan-card:hover{
+        border:1px solid #00e5ff;
+        box-shadow:0 0 40px rgba(0,229,255,0.6);
+        transform:translateY(-6px);
+    }
+
+    .plan-btn{
+        margin-top:15px;
+        padding:10px 18px;
+        border-radius:8px;
+        border:1px solid rgba(255,255,255,0.2);
+        background:transparent;
+        color:white;
+        cursor:pointer;
     }
 
     </style>
@@ -418,17 +427,15 @@ if not st.session_state.logged_in:
 
     with left:
 
-        st.markdown('<div class="plan-card">', unsafe_allow_html=True)
-        
-        st.markdown("### 🔓 Plan Gratis")
-
-        st.write("• 5 simulaciones por día")
-        st.write("• Simulador de demanda")
-        st.write("• Dashboard básico")
-
-        st.button("Probar gratis")
-
-        st.markdown('</div>', unsafe_allow_html=True)
+        st.markdown("""
+        <div class="plan-card">
+            <h3>🔓 Plan Gratis</h3>
+            <p>• 5 simulaciones por día</p>
+            <p>• Simulador de demanda</p>
+            <p>• Dashboard básico</p>
+            <button class="plan-btn">Probar gratis</button>
+        </div>
+        """, unsafe_allow_html=True)
 
     with center:
 
