@@ -448,6 +448,9 @@ if not st.session_state.logged_in:
         font-size:12px;
     }
 
+     </style>
+    """, unsafe_allow_html=True)
+    
     left, center, right = st.columns(3)
 
     with left:
