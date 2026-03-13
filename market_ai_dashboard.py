@@ -461,7 +461,7 @@ if not st.session_state.logged_in:
 
             st.success("Código enviado a tu correo")
 
-            st.stop()
+        st.markdown("---")
 
         st.markdown("### Crear cuenta")
 
