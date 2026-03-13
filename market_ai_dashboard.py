@@ -478,26 +478,26 @@ if not st.session_state.logged_in:
             key="register_password"
         )
 
-            # 👇 MEDIDOR DE FUERZA DE CONTRASEÑA
-            if new_password:
+        # 👇 MEDIDOR DE FUERZA DE CONTRASEÑA
+        if new_password:
 
-                strength = password_strength(new_password)
+            strength = password_strength(new_password)
 
-                if strength <= 1:
-                    st.progress(25)
-                    st.error("Contraseña débil")
+            if strength <= 1:
+                st.progress(25)
+                st.error("Contraseña débil")
 
-                elif strength == 2:
-                    st.progress(50)
-                    st.warning("Contraseña media")
+            elif strength == 2:
+                st.progress(50)
+                st.warning("Contraseña media")
 
-                elif strength == 3:
-                    st.progress(75)
-                    st.info("Contraseña buena")
+            elif strength == 3:
+                st.progress(75)
+                st.info("Contraseña buena")
 
-                else:
-                    st.progress(100)
-                    st.success("Contraseña fuerte")
+            else:
+                st.progress(100)
+                st.success("Contraseña fuerte")
 
             show_password = st.checkbox("Mostrar contraseña")
 
