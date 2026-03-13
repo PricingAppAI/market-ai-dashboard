@@ -415,24 +415,6 @@ if not st.session_state.logged_in:
 
         st.button("Activar PRO")
 
-    with right:
-
-        st.markdown("### Iniciar sesión")
-
-        email_login = st.text_input("Correo electrónico")
-        password_login = st.text_input("Contraseña", type="password")
-
-        st.button("Ingresar")
-
-        st.markdown("---")
-
-        st.markdown("### Crear cuenta")
-
-        email_register = st.text_input("Nuevo correo")
-        password_register = st.text_input("Nueva contraseña", type="password")
-
-        st.button("Crear cuenta")
-    
     # -------------------------
     # REGISTRO
     # -------------------------
