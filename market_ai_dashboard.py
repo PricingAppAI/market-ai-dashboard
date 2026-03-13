@@ -16,6 +16,7 @@ import sqlite3
 import database.db as db
 import io
 import time
+import streamlit.components.v1 as components
 
 from streamlit_autorefresh import st_autorefresh
 from database.db import init_simulations_table
@@ -472,23 +473,23 @@ if not st.session_state.logged_in:
 
     with center:
 
-        st.markdown("""
+        components.html("""
         <div class="plan-card-pro">
 
-            <div class="popular-tag">⭐ MÁS POPULAR</div>
+        <div class="popular-tag">⭐ MÁS POPULAR</div>
 
-            <h3>💎 Suscripción PRO</h3>
-            
-            <p>• Simulaciones ilimitadas</p>
-            <p>• Análisis avanzado de precios</p>
-            <p>• Dashboard empresarial</p>
+        <h3>💎 Suscripción PRO</h3>
 
-            <h2>$19.999 <span>/ mes</span></h2>
+        <p>• Simulaciones ilimitadas</p>
+        <p>• Análisis avanzado de precios</p>
+        <p>• Dashboard empresarial</p>
 
-            <button class="plan-btn">Activar PRO</button>
+        <h2>$19.999 <span>/ mes</span></h2>
+
+        <button class="plan-btn">Activar PRO</button>
 
         </div>
-        """, unsafe_allow_html=True)
+        """, height=320)
 
     with right:
 
