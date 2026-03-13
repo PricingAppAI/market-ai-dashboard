@@ -467,12 +467,12 @@ if not st.session_state.logged_in:
         st.markdown("""
         <div class="plan-card-pro">
 
-            <div class="popular-tag">⭐ MÁS POPULAR</div>
+            <div class="popular-tag">MÁS POPULAR</div>
 
             <h3>💎 Suscripción PRO</h3>
-            <p>• Simulaciones ilimitadas</p>
-            <p>• Análisis avanzado de precios</p>
-            <p>• Dashboard empresarial</p>
+            <p>Simulaciones ilimitadas</p>
+            <p>Análisis avanzado de precios</p>
+            <p>Dashboard empresarial</p>
 
             <h3>$19.999 / mes</h3>
 
