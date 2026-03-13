@@ -412,13 +412,23 @@ if not st.session_state.logged_in:
     }
 
     .plan-btn{
-        margin-top:15px;
+
+        background: linear-gradient(135deg,#ffd700,#ffb700);
+
+        color:black;
+        border:none;
         padding:10px 18px;
+
         border-radius:8px;
-        border:1px solid rgba(255,255,255,0.2);
-        background:transparent;
-        color:white;
-        cursor:pointer;
+        font-weight:600;
+
+        transition: all 0.3s ease;
+    }
+
+    .plan-btn:hover{
+
+        box-shadow:0 0 15px rgba(255,215,0,0.7);
+        transform:scale(1.05);
     }
     
     .plan-card-pro{
