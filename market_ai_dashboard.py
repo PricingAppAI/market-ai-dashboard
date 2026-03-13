@@ -593,9 +593,9 @@ if not st.session_state.logged_in:
 
                     st.error("El correo ya está registrado")
 
-                else:
+            else:
 
-                    st.error("Código incorrecto")
+                st.error("Código incorrecto")
 
 # -----------------------------
 # APP (SOLO USUARIOS LOGUEADOS)
