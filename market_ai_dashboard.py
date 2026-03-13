@@ -499,45 +499,45 @@ if not st.session_state.logged_in:
                 st.progress(100)
                 st.success("Contraseña fuerte")
 
-            show_password = st.checkbox("Mostrar contraseña")
+        show_password = st.checkbox("Mostrar contraseña")
 
-            st.caption("🔒 Requisitos: mínimo 8 caracteres, una mayúscula y un carácter especial")
+        st.caption("🔒 Requisitos: mínimo 8 caracteres, una mayúscula y un carácter especial")
 
-            confirm_password = st.text_input(
-                "Confirmar contraseña",
-                type="default" if st.session_state.get("show_password", False) else "password",
-                key="confirm_password"
-            )
+        confirm_password = st.text_input(
+            "Confirmar contraseña",
+            type="default" if st.session_state.get("show_password", False) else "password",
+            key="confirm_password"
+        )
 
-            email_regex = r"[^@]+@[^@]+\.[^@]+"
-            password_regex = r"^(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{8,}$"
+        email_regex = r"[^@]+@[^@]+\.[^@]+"
+        password_regex = r"^(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{8,}$"
 
-            if st.button("Enviar registro"):
+        if st.button("Enviar registro"):
 
-                if new_email == "" or new_password == "" or confirm_password == "":
-                    st.error("Debes completar todos los campos")
+            if new_email == "" or new_password == "" or confirm_password == "":
+                st.error("Debes completar todos los campos")
 
-                elif not re.match(email_regex, new_email):
-                    st.error("Ingresa un correo electrónico válido")
+            elif not re.match(email_regex, new_email):
+                st.error("Ingresa un correo electrónico válido")
 
-                elif not re.match(password_regex, new_password):
-                    st.error("La contraseña debe tener mínimo 8 caracteres, una mayúscula y un caracter especial")
+            elif not re.match(password_regex, new_password):
+                st.error("La contraseña debe tener mínimo 8 caracteres, una mayúscula y un caracter especial")
 
-                elif new_password != confirm_password:
-                    st.error("Las contraseñas no coinciden")
+            elif new_password != confirm_password:
+                st.error("Las contraseñas no coinciden")
 
-                else:
-                    code = send_verification_code(new_email)
+            else:
+                code = send_verification_code(new_email)
 
-                    st.session_state.verification_code = code
-                    st.session_state.verification_sent_time = time.time()
-                    st.session_state.verification_created_time = time.time()
-                    st.session_state.pending_email = new_email
+                st.session_state.verification_code = code
+                st.session_state.verification_sent_time = time.time()
+                st.session_state.verification_created_time = time.time()
+                st.session_state.pending_email = new_email
  
-                    hashed_password = hash_password(new_password)
-                    st.session_state.pending_password = hashed_password
+                hashed_password = hash_password(new_password)
+                st.session_state.pending_password = hashed_password
 
-                    st.success("Se envió un código de verificación a tu correo")
+                st.success("Se envió un código de verificación a tu correo")
 
         if st.session_state.verification_code:
 
