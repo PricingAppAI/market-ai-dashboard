@@ -396,27 +396,28 @@ if not st.session_state.logged_in:
     <style>
 
     .plan-card {
-        background-color: #111;
+        background: #111;
         padding: 25px;
         border-radius: 15px;
         border: 1px solid #2a2a2a;
+        width: 100%;
+        display: block;
         transition: all 0.3s ease;
     }
 
     .plan-card:hover {
         border: 1px solid #00e5ff;
-        box-shadow: 0 0 25px rgba(0,229,255,0.6);
-        transform: translateY(-5px);
+        box-shadow: 0 0 30px rgba(0,229,255,0.6);
+        transform: translateY(-4px);
     }
 
     </style>
     """, unsafe_allow_html=True)
-    
-    left, center, right = st.columns([1,1,1], gap="large")
 
     with left:
         
         st.markdown('<div class="plan-card">', unsafe_allow_html=True)
+        st.markdown("<div style='padding:10px;'>", unsafe_allow_html=True)
 
         st.markdown("### 🔓 Plan Gratis")
 
@@ -426,6 +427,7 @@ if not st.session_state.logged_in:
 
         st.button("Probar gratis")
 
+        st.markdown('</div>', unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
     with center:
