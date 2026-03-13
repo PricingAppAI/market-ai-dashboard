@@ -391,6 +391,27 @@ if not st.session_state.logged_in:
     """,
     unsafe_allow_html=True
     )
+
+    st.markdown("""
+    <style>
+
+    .plan-card {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+        padding: 25px;
+        transition: all 0.3s ease;
+    }
+
+    .plan-card:hover {
+        border: 1px solid #00c8ff;
+        box-shadow: 0 0 20px rgba(0,200,255,0.4);
+        transform: translateY(-4px);
+    }
+
+    </style>
+    """, unsafe_allow_html=True)
+    
     left, center, right = st.columns([1,1,1], gap="large")
 
     with left:
