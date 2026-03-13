@@ -417,6 +417,8 @@ if not st.session_state.logged_in:
     left, center, right = st.columns(3)
 
     with left:
+
+        st.markdown('<div class="plan-card">', unsafe_allow_html=True)
         
         st.markdown("### 🔓 Plan Gratis")
 
