@@ -463,7 +463,7 @@ if not st.session_state.logged_in:
             <p>• Dashboard básico</p>
             <button class="plan-btn">Probar gratis</button>
         </div>
-        """, unsafe_allow_html=True))
+        """, unsafe_allow_html=True)
 
     with center:
 
