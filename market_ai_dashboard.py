@@ -463,6 +463,12 @@ if not st.session_state.logged_in:
         color:#ffd700 !important;
     }
 
+    div[data-testid="stButton"]{
+        margin-top:-70px;
+        display:flex;
+        justify-content:center;
+    }
+
     button[kind="secondary"][data-testid="baseButton-secondary"]{
         display:flex;
         justify-content:center;
@@ -619,6 +625,9 @@ if not st.session_state.logged_in:
         </div>
 
         """, height=320)
+
+        if st.button("Activar PRO", key="pro_button"):
+            st.success("Ir a pago")
 
         if "pro_clicked" not in st.session_state:
             st.session_state.pro_clicked = False
