@@ -622,8 +622,7 @@ if not st.session_state.logged_in:
         """, height=320)
 
         if st.button("Activar PRO"):
-            st.session_state.page = "pago"
-            st.rerun()
+            st.switch_page("pages/pago_pro.py")
 
     with right:
 
