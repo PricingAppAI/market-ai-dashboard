@@ -455,6 +455,11 @@ if not st.session_state.logged_in:
         cursor:pointer;
     }
 
+    div[data-testid="stButton"]{
+        margin-top:-120px;
+        padding-left:40px;
+    }
+
     .plan-card-pro *{
         color:white !important;
     }
@@ -554,12 +559,6 @@ if not st.session_state.logged_in:
             font-family:sans-serif;
         }
 
-        .pro-button{
-            position:relative;
-            margin-top:-90px;
-            margin-left:40px;
-        }
-
         .plan-card-pro:hover{
             border:1px solid gold;
 
@@ -609,12 +608,8 @@ if not st.session_state.logged_in:
         </div>
         """, height=340)
 
-        st.markdown('<div class="pro-button">', unsafe_allow_html=True)
-
-        if st.button("Activar PRO", key="pro_button"):
+        if st.button("Activar PRO", key="pro_button", use_container_width=True):
             st.write("Ir a pago")
-
-        st.markdown('</div>', unsafe_allow_html=True)
 
     with right:
 
