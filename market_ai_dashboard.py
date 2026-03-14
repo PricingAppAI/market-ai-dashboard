@@ -622,7 +622,7 @@ if not st.session_state.logged_in:
         """, height=320)
 
         if st.button("Activar PRO", key="pro_button"):
-            st.switch_page("pago_pro.py")
+            st.page_link("pages/pago_pro.py", label="Activar pago")
 
         
         if "pro_clicked" not in st.session_state:
