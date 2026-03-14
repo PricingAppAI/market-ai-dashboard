@@ -751,12 +751,10 @@ if not st.session_state.logged_in:
             else:
                 code = send_verification_code(new_email)
 
-                st.session_state.pending_email = new_email
-                st.session_state.pending_password = new_password
-
                 st.session_state.verification_code = code
                 st.session_state.verification_sent_time = time.time()
                 st.session_state.verification_created_time = time.time()
+                
                 st.session_state.pending_email = new_email
  
                 hashed_password = hash_password(new_password)
