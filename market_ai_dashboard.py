@@ -455,9 +455,14 @@ if not st.session_state.logged_in:
         cursor:pointer;
     }
 
-    div[data-testid="stButton"]{
-        margin-top:-120px;
-        padding-left:40px;
+    div[data-testid="stButton"] > button{
+        margin-top:-110px;
+        margin-left:40px;
+        width:180px;
+        background:#ffd700;
+        color:black;
+        border-radius:8px;
+        font-weight:600;
     }
 
     .plan-card-pro *{
