@@ -52,7 +52,7 @@ def save_simulation(email, precio, demanda, ingresos):
             precio REAL,
             demanda REAL,
             ingresos REAL
-    )
+        )
     """)
 
     cursor.execute(
