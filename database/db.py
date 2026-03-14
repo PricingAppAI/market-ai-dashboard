@@ -8,9 +8,9 @@ def create_users_table():
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        email TEXT UNIQUE,
+        email TEXT,
         password TEXT,
-        is_pro INTEGER DEFAULT 0
+        plan TEXT DEFAULT 'free'
     )
     """)
 
@@ -102,5 +102,39 @@ def is_user_pro(email):
 
     if result:
         return result[0] == 1
+
+    return False
+
+def activar_pro(user_email):
+    import sqlite3
+
+    conn = sqlite3.connect("database/database.db")
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "UPDATE users SET plan='pro' WHERE email=?",
+        (user_email,)
+    )
+
+    conn.commit()
+    conn.close()
+
+def es_pro(user_email):
+    import sqlite3
+
+    conn = sqlite3.connect("database/database.db")
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT plan FROM users WHERE email=?",
+        (user_email,)
+    )
+
+    result = cursor.fetchone()
+
+    conn.close()
+
+    if result and result[0] == "pro":
+        return True
 
     return False
