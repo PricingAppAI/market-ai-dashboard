@@ -19,9 +19,6 @@ import io
 import time
 import streamlit.components.v1 as components
 
-if "page" not in st.session_state:
-    st.session_state.page = "home"
-
 from streamlit_autorefresh import st_autorefresh
 from database.db import init_simulations_table
 from database.db import create_user
@@ -627,19 +624,6 @@ if not st.session_state.logged_in:
         if st.button("Activar PRO"):
             st.session_state.page = "pago"
             st.rerun()
-            
-        if "pro_clicked" not in st.session_state:
-            st.session_state.pro_clicked = False
-
-        components.html("""
-        <script>
-        window.addEventListener("message", (event) => {
-            if(event.data.type === "pro_click"){
-                fetch("/?pro_click=true")
-            }
-        });
-        </script>
-        """, height=0)
 
     with right:
 
@@ -1822,8 +1806,3 @@ if st.session_state.get("logged_in", False):
                         st.success(f"Precio óptimo: {round(precio_optimo,2)}")
                         st.write(f"Ingresos estimados: {round(ingreso_optimo,2)}")
 
-                        if "page" not in st.session_state:
-                            st.session_state.page = "home"
-
-                        if st.session_state.page == "pago":
-                            st.switch_page("pages/pago_pro.py")
