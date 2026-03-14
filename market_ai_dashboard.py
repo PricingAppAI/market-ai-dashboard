@@ -624,6 +624,10 @@ if not st.session_state.logged_in:
         if st.button("Activar PRO", key="pro_button"):
             st.switch_page("pages/pago.py")
 
+        
+        if "pro_clicked" not in st.session_state:
+            st.session_state.pro_clicked = False
+
         components.html("""
         <script>
         window.addEventListener("message", (event) => {
