@@ -1,5 +1,14 @@
 import streamlit as st
 
+import streamlit as st
+
+st.title(" Pago PRO")
+
+st.write("Aquí ingresarás los datos de pago.")
+
+if st.button("Simular pago"):
+    st.success("Pago realizado (simulación)")
+
 st.set_page_config(page_title="Pago PRO", page_icon=" ")
 
 st.title(" Activar suscripción PRO")
