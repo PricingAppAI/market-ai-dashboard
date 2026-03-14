@@ -477,6 +477,20 @@ if not st.session_state.logged_in:
         color:rgba(255,255,255,0.75) !important;
     }
 
+    div[data-testid="stButton"]{
+        margin-top:-160px; /* sube el botón dentro de la tarjeta */
+        display:flex;
+        justify-content:center; /* lo centra */
+    }
+
+    div[data-testid="stButton"] > button{
+        width:180px;
+        background:#ffd700;
+        color:black;
+        border-radius:8px;
+        font-weight:600;
+    }
+
     .plan-card-pro h3{
         color:#ffffff;
         font-weight:600;
