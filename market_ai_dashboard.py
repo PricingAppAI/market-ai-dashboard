@@ -625,10 +625,7 @@ if not st.session_state.logged_in:
         """, height=320)
 
         if st.button("Activar PRO"):
-            st.markdown(
-                '<meta http-equiv="refresh" content="0; url=/pago_pro">',
-                unsafe_allow_html=True
-            )
+            st.session_state.page = "pago"
             
         if "pro_clicked" not in st.session_state:
             st.session_state.pro_clicked = False
@@ -1823,3 +1820,9 @@ if st.session_state.get("logged_in", False):
                         st.markdown("### Precio óptimo sugerido")
                         st.success(f"Precio óptimo: {round(precio_optimo,2)}")
                         st.write(f"Ingresos estimados: {round(ingreso_optimo,2)}")
+
+                        if "page" not in st.session_state:
+                            st.session_state.page = "home"
+
+                        if st.session_state.page == "pago":
+                            st.switch_page("pages/pago_pro.py")
