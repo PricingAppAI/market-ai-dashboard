@@ -46,12 +46,12 @@ def save_simulation(email, precio, demanda, ingresos):
     cursor = conn.cursor()
 
     cursor.execute("""
-    CREATE TABLE IF NOT EXISTS simulations (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        email TEXT,
-        precio REAL,
-        demanda REAL,
-        ingresos REAL
+        CREATE TABLE IF NOT EXISTS simulations (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            email TEXT,
+            precio REAL,
+            demanda REAL,
+            ingresos REAL
     )
     """)
 
