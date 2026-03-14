@@ -463,6 +463,12 @@ if not st.session_state.logged_in:
         color:#ffd700 !important;
     }
 
+    div[data-testid="stButton"]{
+        display:flex;
+        justify-content:center;
+        margin-top:-80px;
+    }
+
     .pro-btn{
         margin-top:-140px;
         display:flex;
@@ -615,7 +621,7 @@ if not st.session_state.logged_in:
         <h2 style="color:#ffd700;">$19.999 <span style="color:#cccccc;">/ mes</span></h2>
 
         </div>
-        """, height=340)
+        """, height=420)
 
         st.markdown('<div class="pro-btn">', unsafe_allow_html=True)
 
