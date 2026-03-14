@@ -455,16 +455,6 @@ if not st.session_state.logged_in:
         cursor:pointer;
     }
 
-    div[data-testid="stButton"] > button{
-        margin-top:-110px;
-        margin-left:40px;
-        width:180px;
-        background:#ffd700;
-        color:black;
-        border-radius:8px;
-        font-weight:600;
-    }
-
     .plan-card-pro *{
         color:white !important;
     }
@@ -475,20 +465,6 @@ if not st.session_state.logged_in:
 
     .plan-card-pro span{
         color:rgba(255,255,255,0.75) !important;
-    }
-
-    div[data-testid="stButton"]{
-        margin-top:-160px; /* sube el botón dentro de la tarjeta */
-        display:flex;
-        justify-content:center; /* lo centra */
-    }
-
-    div[data-testid="stButton"] > button{
-        width:180px;
-        background:#ffd700;
-        color:black;
-        border-radius:8px;
-        font-weight:600;
     }
 
     .plan-card-pro h3{
@@ -627,8 +603,12 @@ if not st.session_state.logged_in:
         </div>
         """, height=340)
 
+        st.markdown('<div class="pro-btn">', unsafe_allow_html=True)
+
         if st.button("Activar PRO", key="pro_button"):
             st.write("Ir a pago")
+
+        st.markdown('</div>', unsafe_allow_html=True)
 
     with right:
 
