@@ -19,6 +19,12 @@ import io
 import time
 import streamlit.components.v1 as components
 
+params =st.query_params
+
+if params.get("page") =="pago":
+    import pages.pago_pro
+    st.stop()
+
 from streamlit_autorefresh import st_autorefresh
 from database.db import init_simulations_table
 from database.db import create_user
