@@ -17,11 +17,17 @@ st.write(" Dashboard empresarial")
 st.markdown("### Precio: **$19.999 / mes**")
 
 if st.button("Simular pago PRO"):
- 
+
     from database.db import activar_pro
- 
-    activar_pro(st.session_state.user_email)
 
-    st.session_state.usuario_pro = True
+    if "user_email" in st.session_state:
 
-    st.success("Pago realizado. Ahora eres usuario PRO.")
+        activar_pro(st.session_state.user_email)
+
+        st.session_state.usuario_pro = True
+
+        st.success("Pago realizado. Ahora eres usuario PRO.")
+
+    else:
+
+        st.error("Debes iniciar sesión primero.")
