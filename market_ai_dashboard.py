@@ -35,7 +35,7 @@ from sklearn.linear_model import LinearRegression
 from database.db import es_pro
 from database.db import create_user
 
-create_users_table()
+create_users()
 
 init_simulations_table()
 
