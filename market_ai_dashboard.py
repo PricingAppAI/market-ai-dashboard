@@ -19,6 +19,9 @@ import io
 import time
 import streamlit.components.v1 as components
 
+if "page" not in st.session_state:
+    st.session_state.page = "home"
+
 from streamlit_autorefresh import st_autorefresh
 from database.db import init_simulations_table
 from database.db import create_user
