@@ -463,6 +463,20 @@ if not st.session_state.logged_in:
         color:#ffd700 !important;
     }
 
+    .pro-btn{
+        margin-top:-140px;
+        display:flex;
+        justify-content:center;
+    }
+
+    .pro-btn button{
+        width:180px;
+        background:#ffd700;
+        color:black;
+        border-radius:8px;
+        font-weight:600;
+    }
+
     .plan-card-pro span{
         color:rgba(255,255,255,0.75) !important;
     }
