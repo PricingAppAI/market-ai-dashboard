@@ -751,6 +751,9 @@ if not st.session_state.logged_in:
             else:
                 code = send_verification_code(new_email)
 
+                st.session_state.pending_email = new_email
+                st.session_state.pending_password = new_password
+
                 st.session_state.verification_code = code
                 st.session_state.verification_sent_time = time.time()
                 st.session_state.verification_created_time = time.time()
@@ -763,9 +766,10 @@ if not st.session_state.logged_in:
 
     if st.session_state.verification_code:
 
-        user_code = st.text_input("Introduce el código que recibiste por email")
-        if "verification_attempts" not in st.session_state:
-            st.session_state.verification_attempts = 0
+        user_code = st.text_input(
+            "Introduce el código que recibiste por email",
+            key="verification_input"
+        )
 
         if "verification_sent_time" in st.session_state:
             st_autorefresh(interval=1000, key="timer")
@@ -782,18 +786,19 @@ if not st.session_state.logged_in:
                     st.success("Nuevo código enviado a tu correo")
 
         if st.button("Verificar código"):
-            # verificar expiración del código
+
+            # verificar expiración
             if "verification_created_time" in st.session_state:
 
                 segundos_pasados = time.time() - st.session_state.verification_created_time
 
                 if segundos_pasados > 300:
-
                     st.error("El código expiró. Solicita uno nuevo.")
                     st.session_state.verification_code = None
                     st.stop()
 
-            if user_code == st.session_state.verification_code:
+            # comparar código
+            if user_code == str(st.session_state.verification_code):
 
                 success = save_user(
                     st.session_state.pending_email,
@@ -805,18 +810,15 @@ if not st.session_state.logged_in:
                     st.success("Cuenta verificada y creada")
 
                     st.session_state.verification_code = None
-
                     st.session_state.logged_in = True
                     st.session_state.user_email = st.session_state.pending_email
 
                     st.rerun()
 
                 else:
-
                     st.error("El correo ya está registrado")
 
             else:
-
                 st.error("Código incorrecto")
 
 # -----------------------------
