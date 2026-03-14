@@ -621,10 +621,12 @@ if not st.session_state.logged_in:
 
         """, height=320)
 
-        if st.button("Activar PRO", key="pro_button"):
-            st.page_link("pages/pago_pro.py", label="Activar pago")
-
-        
+        if st.button("Activar PRO"):
+            st.markdown(
+                '<meta http-equiv="refresh" content="0; url=/pago_pro">',
+                unsafe_allow_html=True
+            )
+            
         if "pro_clicked" not in st.session_state:
             st.session_state.pro_clicked = False
 
