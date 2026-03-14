@@ -626,6 +626,7 @@ if not st.session_state.logged_in:
 
         if st.button("Activar PRO"):
             st.session_state.page = "pago"
+            st.rerun()
             
         if "pro_clicked" not in st.session_state:
             st.session_state.pro_clicked = False
