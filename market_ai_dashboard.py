@@ -455,12 +455,6 @@ if not st.session_state.logged_in:
         cursor:pointer;
     }
 
-    .pro-button{
-        position:relative;
-        margin-top:-90px;
-        margin-left:40px;
-    }
-
     .plan-card-pro *{
         color:white !important;
     }
@@ -558,6 +552,12 @@ if not st.session_state.logged_in:
 
             transition:all .35s ease;
             font-family:sans-serif;
+        }
+
+        .pro-button{
+            position:relative;
+            margin-top:-90px;
+            margin-left:40px;
         }
 
         .plan-card-pro:hover{
