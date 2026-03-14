@@ -463,10 +463,13 @@ if not st.session_state.logged_in:
         color:#ffd700 !important;
     }
 
-    div[data-testid="stButton"]{
+    button[kind="secondary"][data-testid="baseButton-secondary"]{
         display:flex;
         justify-content:center;
-        margin-top:-80px;
+    }
+
+    button:contains("ingresar"){
+        margin-top:0px !important;
     }
 
     .pro-btn{
