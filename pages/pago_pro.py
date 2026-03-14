@@ -23,5 +23,12 @@ st.write(" Dashboard empresarial")
 
 st.markdown("### Precio: **$19.999 / mes**")
 
-if st.button("Proceder al pago"):
-    st.success("Aquí irá la integración con el sistema de pago.")
+if st.button("Simular pago PRO"):
+ 
+    from database.db import activar_pro
+ 
+    activar_pro(st.session_state.user_email)
+
+    st.session_state.usuario_pro = True
+
+    st.success("Pago realizado. Ahora eres usuario PRO.")
