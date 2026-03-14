@@ -5,19 +5,13 @@ def create_users_table():
     conn = sqlite3.connect("users.db")
     cursor = conn.cursor()
 
-    # agregar columna plan si no existe
-    try:
-        cursor.execute("ALTER TABLE users ADD COLUMN plan TEXT DEFAULT 'free'")
-    except:
-        pass
-
     cursor.execute("""
-    CREATE TABLE IF NOT EXISTS users (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        email TEXT,
-        password TEXT,
-        plan TEXT DEFAULT 'free'
-    )
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            email TEXT UNIQUE,
+            password TEXT,
+            plan TEXT DEFAULT 'free'
+        )
     """)
 
     conn.commit()
