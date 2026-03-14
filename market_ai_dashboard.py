@@ -608,7 +608,7 @@ if not st.session_state.logged_in:
         </div>
         """, height=340)
 
-        if st.button("Activar PRO", key="pro_button", use_container_width=True):
+        if st.button("Activar PRO", key="pro_button"):
             st.write("Ir a pago")
 
     with right:
