@@ -455,6 +455,18 @@ if not st.session_state.logged_in:
         cursor:pointer;
     }
 
+    .plan-card-pro *{
+        color:white !important;
+    }
+
+    .plan-card-pro h2{
+        color:#ffd700 !important;
+    }
+
+    .plan-card-pro span{
+        color:rgba(255,255,255,0.75) !important;
+    }
+
     .plan-card-pro h3{
         color:#ffffff;
         font-weight:600;
