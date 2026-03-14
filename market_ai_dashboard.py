@@ -600,10 +600,11 @@ if not st.session_state.logged_in:
 
         <h2 style="color:#ffd700;">$19.999 <span style="color:#cccccc;">/ mes</span></h2>
 
-        <button class="plan-btn">Activar PRO</button>
-
         </div>
         """, height=340)
+
+        if st.button("Activar PRO", key="pro_button"):
+            st.write("Ir a pago")
 
     with right:
 
