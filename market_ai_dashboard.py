@@ -19,10 +19,12 @@ import io
 import time
 import streamlit.components.v1 as components
 
-params =st.query_params
+import runpy
 
-if params.get("page") =="pago":
-    import pages.pago_pro
+params = st.query_params
+
+if params.get("page") == "pago":
+    runpy.run_path("pages/pago_pro.py")
     st.stop()
 
 from streamlit_autorefresh import st_autorefresh
