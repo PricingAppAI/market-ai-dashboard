@@ -33,6 +33,7 @@ from database.db import create_user
 from database.db import get_user_simulations
 from database.db import save_simulation
 from sklearn.linear_model import LinearRegression
+from database.db import es_pro
 
 init_simulations_table()
 
@@ -653,6 +654,8 @@ if not st.session_state.logged_in:
 
                 st.session_state.logged_in = True
                 st.session_state.user_email = email
+
+                st.session_state.usuario_pro = es_pro(st.session_state.user_email)
 
                 st.rerun()
 
