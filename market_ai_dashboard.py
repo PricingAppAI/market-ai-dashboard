@@ -455,6 +455,12 @@ if not st.session_state.logged_in:
         cursor:pointer;
     }
 
+    .pro-button{
+        position:relative;
+        margin-top:-90px;
+        margin-left:40px;
+    }
+
     .plan-card-pro *{
         color:white !important;
     }
@@ -603,8 +609,12 @@ if not st.session_state.logged_in:
         </div>
         """, height=340)
 
+        st.markdown('<div class="pro-button">', unsafe_allow_html=True)
+
         if st.button("Activar PRO", key="pro_button"):
             st.write("Ir a pago")
+
+        st.markdown('</div>', unsafe_allow_html=True)
 
     with right:
 
