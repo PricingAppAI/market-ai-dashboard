@@ -67,8 +67,7 @@ def create_user(email, password):
 
     conn = sqlite3.connect("users.db")
     cursor = conn.cursor()
-
-    cursor.execute(
+    
         cursor.execute(
             "INSERT INTO users (email, password, plan) VALUES (?, ?, 'free')",
             (email, password)
