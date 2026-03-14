@@ -69,8 +69,9 @@ def create_user(email, password):
     cursor = conn.cursor()
 
     cursor.execute(
-        "INSERT INTO users (email, password) VALUES (?, ?)",
-        (email, password)
+        cursor.execute(
+            "INSERT INTO users (email, password, plan) VALUES (?, ?, 'free')",
+            (email, password)
     )
 
     conn.commit()
