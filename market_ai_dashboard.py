@@ -592,13 +592,13 @@ if not st.session_state.logged_in:
 
         <div class="popular-tag">⭐ MÁS POPULAR</div>
 
-        <h3>💎 Suscripción PRO</h3>
+        <h3 style="color:white;">💎 Suscripción PRO</h3>
 
-        <p>• Simulaciones ilimitadas</p>
-        <p>• Análisis avanzado de precios</p>
-        <p>• Dashboard empresarial</p>
+        <p style="color:white;">• Simulaciones ilimitadas</p>
+        <p style="color:white;">• Análisis avanzado de precios</p>
+        <p style="color:white;">• Dashboard empresarial</p>
 
-        <h2>$19.999 <span style="font-size:14px;opacity:.7">/ mes</span></h2>
+        <h2 style="color:#ffd700;">$19.999 <span style="color:#cccccc;">/ mes</span></h2>
 
         <button class="plan-btn">Activar PRO</button>
 
