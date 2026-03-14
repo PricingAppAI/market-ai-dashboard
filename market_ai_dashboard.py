@@ -621,7 +621,7 @@ if not st.session_state.logged_in:
         <h2 style="color:#ffd700;">$19.999 <span style="color:#cccccc;">/ mes</span></h2>
 
         </div>
-        """, height=320)
+        """, height=330)
 
         st.markdown('<div class="pro-btn">', unsafe_allow_html=True)
 
