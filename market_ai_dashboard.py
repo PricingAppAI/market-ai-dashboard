@@ -33,7 +33,7 @@ from database.db import get_user_simulations
 from database.db import save_simulation
 from sklearn.linear_model import LinearRegression
 from database.db import es_pro
-from database.db import create_user_table
+from database.db import create_user
 
 create_users_table()
 
