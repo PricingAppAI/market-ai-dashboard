@@ -1,3 +1,4 @@
+
 import streamlit as st
 
 st.set_page_config(
@@ -463,12 +464,6 @@ if not st.session_state.logged_in:
         color:#ffd700 !important;
     }
 
-    div[data-testid="stButton"]{
-        margin-top:-70px;
-        display:flex;
-        justify-content:center;
-    }
-
     button[kind="secondary"][data-testid="baseButton-secondary"]{
         display:flex;
         justify-content:center;
@@ -568,79 +563,76 @@ if not st.session_state.logged_in:
         <style>
 
         .plan-card-pro{
-            background: rgba(18,18,18,0.95);
-            border-radius:16px;
+            position:relative;
+            background: rgba(25,25,25,0.9);
             padding:30px;
+            border-radius:16px;
+
             border:1px solid rgba(255,215,0,0.6);
-            box-shadow:0 0 20px rgba(255,215,0,0.25);
-            color:white;
+
+            box-shadow:
+                0 0 15px rgba(255,215,0,0.3),
+                0 0 40px rgba(255,215,0,0.15);
+
+            transition:all .35s ease;
             font-family:sans-serif;
         }
 
-        .plan-card-pro h3{
-            margin-bottom:10px;
+        .plan-card-pro:hover{
+            border:1px solid gold;
+
+            box-shadow:
+                0 0 30px rgba(255,215,0,0.7),
+                0 0 70px rgba(255,215,0,0.4);
+
+            transform:translateY(-6px) scale(1.03);
         }
 
-        .plan-card-pro p{
-            margin:6px 0;
+        .popular-tag{
+            position:absolute;
+            top:-12px;
+            right:20px;
+            background:gold;
+            color:black;
+            font-weight:bold;
+            padding:4px 10px;
+            border-radius:8px;
+            font-size:12px;
         }
 
-        .price{
-            color:#ffd700;
-            font-size:28px;
-            font-weight:700;
-            margin-top:15px;
-        }
-
-        .pro-btn{
-            margin-top:20px;
-            padding:10px 20px;
-            background:#ffd700;
+        .plan-btn{
+            background:linear-gradient(135deg,#ffd700,#ffb700);
+            color:black;
             border:none;
+            padding:10px 18px;
             border-radius:8px;
             font-weight:600;
-            cursor:pointer;
-        }
-
-        .pro-btn:hover{
-            background:#ffcc00;
+            margin-top:10px;
         }
 
         </style>
 
         <div class="plan-card-pro">
 
-        <h3>💎 Suscripción PRO</h3>
+        <div class="popular-tag">⭐ MÁS POPULAR</div>
 
-        <p>• Simulaciones ilimitadas</p>
-        <p>• Análisis avanzado de precios</p>
-        <p>• Dashboard empresarial</p>
+        <h3 style="color:white;">💎 Suscripción PRO</h3>
 
-        <div class="price">$19.999 / mes</div>
+        <p style="color:white;">• Simulaciones ilimitadas</p>
+        <p style="color:white;">• Análisis avanzado de precios</p>
+        <p style="color:white;">• Dashboard empresarial</p>
 
-        <button class="pro-btn" onclick="window.parent.postMessage({type:'pro_click'}, '*')">
-        Activar PRO
-        </button>
+        <h2 style="color:#ffd700;">$19.999 <span style="color:#cccccc;">/ mes</span></h2>
 
         </div>
+        """, height=330)
 
-        """, height=320)
+        st.markdown('<div class="pro-btn">', unsafe_allow_html=True)
 
         if st.button("Activar PRO", key="pro_button"):
-            st.success("Ir a pago")
+            st.write("Ir a pago")
 
-        if "pro_clicked" not in st.session_state:
-            st.session_state.pro_clicked = False
-
-        components.html("""
-        <script>
-        window.addEventListener("message", (event) => {
-            if(event.data.type === "pro_click"){
-                fetch("/?pro_click=true")
-            }
-        });
-        </script>
-        """, height=0)
+        st.markdown('</div>', unsafe_allow_html=True)
 
     with right:
 
