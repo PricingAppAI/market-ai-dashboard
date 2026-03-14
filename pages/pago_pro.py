@@ -1,7 +1,5 @@
 import streamlit as st
 
-import streamlit as st
-
 st.title(" Pago PRO")
 
 st.write("Aquí ingresarás los datos de pago.")
