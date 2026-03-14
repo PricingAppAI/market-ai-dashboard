@@ -563,76 +563,76 @@ if not st.session_state.logged_in:
         <style>
 
         .plan-card-pro{
-            position:relative;
-            background: rgba(25,25,25,0.9);
-            padding:30px;
+            background: rgba(18,18,18,0.95);
             border-radius:16px;
-
+            padding:30px;
             border:1px solid rgba(255,215,0,0.6);
-
-            box-shadow:
-                0 0 15px rgba(255,215,0,0.3),
-                0 0 40px rgba(255,215,0,0.15);
-
-            transition:all .35s ease;
+            box-shadow:0 0 20px rgba(255,215,0,0.25);
+            color:white;
             font-family:sans-serif;
         }
 
-        .plan-card-pro:hover{
-            border:1px solid gold;
-
-            box-shadow:
-                0 0 30px rgba(255,215,0,0.7),
-                0 0 70px rgba(255,215,0,0.4);
-
-            transform:translateY(-6px) scale(1.03);
+        .plan-card-pro h3{
+            margin-bottom:10px;
         }
 
-        .popular-tag{
-            position:absolute;
-            top:-12px;
-            right:20px;
-            background:gold;
-            color:black;
-            font-weight:bold;
-            padding:4px 10px;
-            border-radius:8px;
-            font-size:12px;
+        .plan-card-pro p{
+            margin:6px 0;
         }
 
-        .plan-btn{
-            background:linear-gradient(135deg,#ffd700,#ffb700);
-            color:black;
+        .price{
+            color:#ffd700;
+            font-size:28px;
+            font-weight:700;
+            margin-top:15px;
+        }
+
+        .pro-btn{
+            margin-top:20px;
+            padding:10px 20px;
+            background:#ffd700;
             border:none;
-            padding:10px 18px;
             border-radius:8px;
             font-weight:600;
-            margin-top:10px;
+            cursor:pointer;
+        }
+
+        .pro-btn:hover{
+            background:#ffcc00;
         }
 
         </style>
 
         <div class="plan-card-pro">
 
-        <div class="popular-tag">⭐ MÁS POPULAR</div>
+        <h3>💎 Suscripción PRO</h3>
 
-        <h3 style="color:white;">💎 Suscripción PRO</h3>
+        <p>• Simulaciones ilimitadas</p>
+        <p>• Análisis avanzado de precios</p>
+        <p>• Dashboard empresarial</p>
 
-        <p style="color:white;">• Simulaciones ilimitadas</p>
-        <p style="color:white;">• Análisis avanzado de precios</p>
-        <p style="color:white;">• Dashboard empresarial</p>
+        <div class="price">$19.999 / mes</div>
 
-        <h2 style="color:#ffd700;">$19.999 <span style="color:#cccccc;">/ mes</span></h2>
+        <button class="pro-btn" onclick="window.parent.postMessage({type:'pro_click'}, '*')">
+        Activar PRO
+        </button>
 
         </div>
-        """, height=330)
 
-        st.markdown('<div class="pro-btn">', unsafe_allow_html=True)
+        """, height=320)
 
-        if st.button("Activar PRO", key="pro_button"):
-            st.write("Ir a pago")
+        if "pro_clicked" not in st.session_state:
+            st.session_state.pro_clicked = False
 
-        st.markdown('</div>', unsafe_allow_html=True)
+        components.html("""
+        <script>
+        window.addEventListener("message", (event) => {
+            if(event.data.type === "pro_click"){
+                fetch("/?pro_click=true")
+            }
+        });
+        </script>
+        """, height=0)
 
     with right:
 
