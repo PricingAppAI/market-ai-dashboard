@@ -10,8 +10,9 @@ def create_users_table():
     CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         email TEXT UNIQUE,
-        password TEXT,
+        password BLOB,
         plan TEXT DEFAULT 'free'
+        verification_code TEXT
     )
     """)
 
