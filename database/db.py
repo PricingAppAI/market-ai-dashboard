@@ -3,8 +3,6 @@ import sqlite3
 
 def create_users_table():
 
-    import sqlite3
-
     conn = sqlite3.connect("database/database.db")
     cursor = conn.cursor()
 
