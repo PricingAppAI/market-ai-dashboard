@@ -55,3 +55,18 @@ def get_user_simulations(email):
     conn.close()
 
     return rows
+
+def save_simulation(email, precio, demanda, ingresos):
+
+    import sqlite3
+
+    conn = sqlite3.connect("database/database.db")
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "INSERT INTO simulations (email, precio, demanda, ingresos) VALUES (?, ?, ?, ?)",
+        (email, precio, demanda, ingresos)
+    )
+
+    conn.commit()
+    conn.close()
