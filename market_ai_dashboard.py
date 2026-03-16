@@ -27,6 +27,15 @@ if params.get("page") == "pago":
     runpy.run_path("pages/pago_pro.py")
     st.stop()
 
+if params.get("pago") == "ok":
+
+    from database.db import activar_pro
+
+    if "user_email" in st.session_state:
+        activar_pro(st.session_state.user_email)
+        st.session_state.usuario_pro = True
+        st.success("Pago confirmado. Ahora eres usuario PRO.")
+
 from streamlit_autorefresh import st_autorefresh
 from sklearn.linear_model import LinearRegression
 from database.db import init_simulations_table
