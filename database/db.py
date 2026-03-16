@@ -12,6 +12,7 @@ def create_users_table():
             email TEXT UNIQUE,
             password TEXT,
             plan TEXT DEFAULT 'free'
+            verification_code TEXT
         )
     """)
 
