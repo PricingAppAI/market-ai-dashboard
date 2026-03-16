@@ -70,3 +70,24 @@ def save_simulation(email, precio, demanda, ingresos):
 
     conn.commit()
     conn.close()
+
+def es_pro(user_email):
+
+    import sqlite3
+
+    conn = sqlite3.connect("database/database.db")
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT plan FROM users WHERE email=?",
+        (user_email,)
+    )
+
+    result = cursor.fetchone()
+
+    conn.close()
+
+    if result and result[0] == "pro":
+        return True
+
+    return False
