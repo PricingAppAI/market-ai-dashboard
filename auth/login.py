@@ -8,7 +8,7 @@ def login_user(email, password):
     cursor = conn.cursor()
 
     cursor.execute(
-        "SELECT password_hash FROM users WHERE email=?",
+        "SELECT password FROM users WHERE email=?",
         (email,)
     )
 
