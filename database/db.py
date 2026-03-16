@@ -37,3 +37,21 @@ def init_simulations_table():
 
     conn.commit()
     conn.close()
+
+def get_user_simulations(email):
+
+    import sqlite3
+
+    conn = sqlite3.connect("database/database.db")
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT precio, demanda, ingresos FROM simulations WHERE email=?",
+        (email,)
+    )
+
+    rows = cursor.fetchall()
+
+    conn.close()
+
+    return rows
