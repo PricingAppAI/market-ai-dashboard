@@ -18,5 +18,5 @@ st.markdown("### Precio: **$19.999 / mes**")
 
 st.link_button(
     "Comprar Plan PRO",
-    "https://pricingmarketai.lemonsqueezy.com/checkout/buy/047578b8-169b-46c0-8e58-bc295f959d7e"
+    "https://pricingmarketai.lemonsqueezy.com/checkout/buy/047578b8-169b-46c0-8e58-bc295f959d7e?redirect_url=https://pricingmarket-ai.streamlit.app/?pago=ok"
 )
