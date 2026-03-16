@@ -3,17 +3,19 @@ import sqlite3
 
 def create_users_table():
 
+    import sqlite3
+
     conn = sqlite3.connect("database/database.db")
     cursor = conn.cursor()
 
     cursor.execute("""
-        CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            email TEXT UNIQUE,
-            password BLOB,
-            plan TEXT DEFAULT 'free'
-            verification_code TEXT
-        )
+    CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        email TEXT UNIQUE,
+        password BLOB,
+        plan TEXT DEFAULT 'free',
+        verification_code TEXT
+    )
     """)
 
     try:
