@@ -1,48 +1,62 @@
 import sqlite3
 
-def create_users_table():
+DB_PATH = "database/database.db"
 
-    conn = sqlite3.connect("database/database.db")
+def create_users_table():
+    conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
 
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS users (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        email TEXT UNIQUE,
-        password BLOB,
-        plan TEXT DEFAULT 'free',
-        verification_code TEXT
+           id INTEGER PRIMARY KEY AUTOINCREMENT,
+           email TEXT UNIQUE,
+           password BLOB,
+           plan TEXT DEFAULT 'free',
+           verification_code TEXT
     )
     """)
+
+    # Si la tabla ya existía sin verification_code, intenta agregarla
+    try:
+        cursor.execute("ALTER TABLE users ADD COLUMN verification_code TEXT")
+    except:
+        pass
 
     conn.commit()
     conn.close()
 
 def init_simulations_table():
-
-    import sqlite3
-
-    conn = sqlite3.connect("database/database.db")
+    conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
 
     cursor.execute("""
-        CREATE TABLE IF NOT EXISTS simulations (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            email TEXT,
-            precio REAL,
-            demanda REAL,
-            ingresos REAL
+    CREATE TABLE IF NOT EXISTS simulations (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        email TEXT,
+        precio REAL,
+        demanda REAL,
+        ingresos REAL
     )
     """)
 
     conn.commit()
     conn.close()
 
+
+def save_simulation(email, precio, demanda, ingresos):
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "INSERT INTO simulations (email, precio, demanda, ingresos) VALUES (?, ?, ?, ?)",
+        (email, precio, demanda, ingresos)
+    )
+
+    conn.commit()
+    conn.close()
+
 def get_user_simulations(email):
-
-    import sqlite3
-
-    conn = sqlite3.connect("database/database.db")
+    conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
 
     cursor.execute(
@@ -56,26 +70,8 @@ def get_user_simulations(email):
 
     return rows
 
-def save_simulation(email, precio, demanda, ingresos):
-
-    import sqlite3
-
-    conn = sqlite3.connect("database/database.db")
-    cursor = conn.cursor()
-
-    cursor.execute(
-        "INSERT INTO simulations (email, precio, demanda, ingresos) VALUES (?, ?, ?, ?)",
-        (email, precio, demanda, ingresos)
-    )
-
-    conn.commit()
-    conn.close()
-
 def es_pro(user_email):
-
-    import sqlite3
-
-    conn = sqlite3.connect("database/database.db")
+    conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
 
     cursor.execute(
