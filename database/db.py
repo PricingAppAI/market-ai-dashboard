@@ -12,9 +12,13 @@ def create_users_table():
         email TEXT UNIQUE,
         password TEXT,
         plan TEXT DEFAULT 'free'
-        verification_code TEXT
     )
     """)
+
+    try:
+        cursor.execute("ALTER TABLE users ADD COLUMN verification_code TEXT")
+    except:
+        pass
 
     conn.commit()
     conn.close()
