@@ -3,7 +3,7 @@ import sqlite3
 
 def create_users_table():
 
-    conn = sqlite3.connect("users.db")
+    conn = sqlite3.connect("database/database.db")
     cursor = conn.cursor()
 
     cursor.execute("""
@@ -20,7 +20,7 @@ def create_users_table():
 
 def init_simulations_table():
 
-    conn = sqlite3.connect("users.db")
+    conn = sqlite3.connect("database/database.db")
     cursor = conn.cursor()
 
     cursor.execute("""
@@ -38,7 +38,7 @@ def init_simulations_table():
 
 def save_simulation(email, precio, demanda, ingresos):
 
-    conn = sqlite3.connect("users.db")
+    conn = sqlite3.connect("database/database.db")
     cursor = conn.cursor()
 
     cursor.execute(
@@ -51,7 +51,7 @@ def save_simulation(email, precio, demanda, ingresos):
 
 def create_user(email, password):
 
-    conn = sqlite3.connect("users.db")
+    conn = sqlite3.connect("database/database.db")
     cursor = conn.cursor()
 
     cursor.execute(
@@ -64,7 +64,7 @@ def create_user(email, password):
 
 def get_user_simulations(email):
 
-    conn = sqlite3.connect("users.db")
+    conn = sqlite3.connect("database/database.db")
     cursor = conn.cursor()
 
     cursor.execute(
@@ -80,7 +80,7 @@ def get_user_simulations(email):
 
 def activar_pro(user_email):
 
-    conn = sqlite3.connect("users.db")
+    conn = sqlite3.connect("database/database.db")
     cursor = conn.cursor()
 
     cursor.execute(
@@ -93,7 +93,7 @@ def activar_pro(user_email):
 
 def es_pro(user_email):
 
-    conn = sqlite3.connect("users.db")
+    conn = sqlite3.connect("database/database.db")
     cursor = conn.cursor()
 
     cursor.execute(
