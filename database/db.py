@@ -1,6 +1,5 @@
 import sqlite3
 
-
 def create_users_table():
 
     conn = sqlite3.connect("database/database.db")
