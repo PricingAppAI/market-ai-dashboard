@@ -7,13 +7,13 @@ def create_users_table():
     cursor = conn.cursor()
 
     cursor.execute("""
-    CREATE TABLE IF NOT EXISTS users (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        email TEXT UNIQUE,
-        password BLOB,
-        plan TEXT DEFAULT 'free'
-        verification_code TEXT
-    )
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            email TEXT UNIQUE,
+            password BLOB,
+            plan TEXT DEFAULT 'free'
+            verification_code TEXT
+        )
     """)
 
     try:
