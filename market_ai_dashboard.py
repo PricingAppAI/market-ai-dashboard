@@ -38,11 +38,11 @@ if params.get("pago") == "ok":
 
 from streamlit_autorefresh import st_autorefresh
 from sklearn.linear_model import LinearRegression
+from database.db import create_users_table
 from database.db import init_simulations_table
 from database.db import get_user_simulations
 from database.db import save_simulation
 from database.db import es_pro
-from database.db import create_users_table
 
 create_users_table()
 init_simulations_table()
