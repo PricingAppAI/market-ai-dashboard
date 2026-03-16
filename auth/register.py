@@ -12,7 +12,7 @@ def register_user(email, password):
 
         cursor.execute(
             "INSERT INTO users (email, password) VALUES (?, ?)",
-            (email, password)
+            (email, hashed_password)
         )
 
         conn.commit()
