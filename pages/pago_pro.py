@@ -16,18 +16,7 @@ st.write(" Dashboard empresarial")
 
 st.markdown("### Precio: **$19.999 / mes**")
 
-if st.button("Simular pago PRO"):
-
-    from database.db import activar_pro
-
-    if "user_email" in st.session_state:
-
-        activar_pro(st.session_state.user_email)
-
-        st.session_state.usuario_pro = True
-
-        st.success("Pago realizado. Ahora eres usuario PRO.")
-
-    else:
-
-        st.error("Debes iniciar sesión primero.")
+st.link_button(
+    "Comprar Plan PRO",
+    "https://pricingmarketai.lemonsqueezy.com/checkout/buy/047578b8-169b-46c0-8e58-bc295f959d7e"
+)
