@@ -4,7 +4,7 @@ import bcrypt
 
 def login_user(email, password):
 
-    conn = sqlite3.connect("users.db")
+    conn = sqlite3.connect("database/database.db")
     cursor = conn.cursor()
 
     cursor.execute(
