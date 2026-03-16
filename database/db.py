@@ -1,5 +1,6 @@
 import sqlite3
 
+
 def create_users_table():
 
     conn = sqlite3.connect("users.db")
@@ -18,23 +19,6 @@ def create_users_table():
     conn.close()
 
 def init_simulations_table():
-    conn = sqlite3.connect("users.db")
-    cursor = conn.cursor()
-
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS simulations (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        email TEXT,
-        precio REAL,
-        demanda REAL,
-        ingresos REAL
-    )
-    """)
-
-    conn.commit()
-    conn.close()
-
-def save_simulation(email, precio, demanda, ingresos):
 
     conn = sqlite3.connect("users.db")
     cursor = conn.cursor()
@@ -49,6 +33,14 @@ def save_simulation(email, precio, demanda, ingresos):
         )
     """)
 
+    conn.commit()
+    conn.close()
+
+def save_simulation(email, precio, demanda, ingresos):
+
+    conn = sqlite3.connect("users.db")
+    cursor = conn.cursor()
+
     cursor.execute(
         "INSERT INTO simulations (email, precio, demanda, ingresos) VALUES (?, ?, ?, ?)",
         (email, precio, demanda, ingresos)
@@ -61,10 +53,10 @@ def create_user(email, password):
 
     conn = sqlite3.connect("users.db")
     cursor = conn.cursor()
-    
-        cursor.execute(
-            "INSERT INTO users (email, password, plan) VALUES (?, ?, 'free')",
-            (email, password)
+
+    cursor.execute(
+        "INSERT INTO users (email, password) VALUES (?, ?)",
+        (email, password)
     )
 
     conn.commit()
@@ -83,32 +75,12 @@ def get_user_simulations(email):
     rows = cursor.fetchall()
 
     conn.close()
-    
+
     return rows
 
-def is_user_pro(email):
+def activar_pro(user_email):
 
     conn = sqlite3.connect("users.db")
-    cursor = conn.cursor()
-
-    cursor.execute(
-        "SELECT is_pro FROM users WHERE email = ?",
-        (email,)
-    )
-
-    result = cursor.fetchone()
-
-    conn.close()
-
-    if result:
-        return result[0] == 1
-
-    return False
-
-def activar_pro(user_email):
-    import sqlite3
-
-    conn = sqlite3.connect("database/database.db")
     cursor = conn.cursor()
 
     cursor.execute(
@@ -120,9 +92,8 @@ def activar_pro(user_email):
     conn.close()
 
 def es_pro(user_email):
-    import sqlite3
 
-    conn = sqlite3.connect("database/database.db")
+    conn = sqlite3.connect("users.db")
     cursor = conn.cursor()
 
     cursor.execute(
