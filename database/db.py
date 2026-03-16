@@ -17,3 +17,23 @@ def create_users_table():
 
     conn.commit()
     conn.close()
+
+def init_simulations_table():
+
+    import sqlite3
+
+    conn = sqlite3.connect("database/database.db")
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS simulations (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            email TEXT,
+            precio REAL,
+            demanda REAL,
+            ingresos REAL
+    )
+    """)
+
+    conn.commit()
+    conn.close()
